@@ -1,0 +1,25 @@
+{
+  "name": "covidirectapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kvntn/covidirect/api"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "restful",
+    "covidirect",
+    "covidrectpi"
+  ],
+  "author": "Kvendev",
+  "license": "MIT",
+  "dependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
