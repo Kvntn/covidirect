@@ -1,0 +1,36 @@
+.navbar a {
+    margin-right:10%;
+    color:white;
+    font-size: 20;
+    font-weight: bolder;
+}
+
+.navbar i {
+    font-size: 35px;
+    margin-left:10px;
+    margin-top:6px;
+    margin-right:10px;
+}
+
+.footer-icon {
+    margin-left:20px;
+    color : whitesmoke;
+    font-size: 45px;
+    content: black;
+}
+  
+.footer a {
+    color:gray;
+}
+
+.footer a:hover {
+    color:black;
+}
+
+.faceI i {
+    color:#3b5998;
+}
+
+.telI i {
+    color:green;
+}
