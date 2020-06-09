@@ -36,7 +36,7 @@
         </div> <!-- form-group end.// -->
         
 		<div class="form-group col-md-6">
-		  <label>Photo de profile</label>
+		  <label>Photo de profil</label>
 		  <input type="file" class="form-control-file">
 		    
           </input>
@@ -51,13 +51,15 @@
         </div> <!-- form-group end.// -->
         
 		<div class="form-group col-md-6">
-		  <label style="color:white;">°</label>
-		  
-            <button type="submit" class="btn btn-secondary form-control">S'inscrire</button>
-        
-        </div> <!-- form-group end.// -->
-        
+		  <label>Confirmer le mots de passe</label>
+		  <input type="password" class="form-control">
+        </div> <!-- form-group end.// -->    
     </div> <!-- form-row.// -->
+    
+    <div class="form-row">
+        <button type="submit" class="btn btn-secondary">S'inscrire</button>
+    </div>
+
 
 </div> 
 <!--container end.//-->

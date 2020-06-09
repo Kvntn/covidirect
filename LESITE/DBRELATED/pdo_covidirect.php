@@ -1,5 +1,5 @@
 <?php
-  final class db_local{
+  final class db_covidirect{
     private static $PDOInstance = null;
     private static $dsn         = null;
     private static $username    = null;
