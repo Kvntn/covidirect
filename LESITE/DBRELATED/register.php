@@ -20,7 +20,7 @@
 		</div> <!-- form-group end.// -->
 		<div class="col form-group">
 			<label>Nom</label>
-		  	<input type="text" class="form-control" placeholder=" ">
+		  	<input type="text" class="form-control" placeholder="">
 		</div> <!-- form-group end.// -->
 	</div> <!-- form-row end.// -->
 	<div class="form-group">
