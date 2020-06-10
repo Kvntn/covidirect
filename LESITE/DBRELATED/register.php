@@ -47,7 +47,7 @@
 	<div class="form-row">
 		<div class="form-group col-md-6">
 		  <label>Mots de passe</label>
-		  <input type="password" required="required" name="pw" class="form-control">
+		  <input type="password" required="required" name="password" class="form-control">
         </div> <!-- form-group end.// -->
         
 		<div class="form-group col-md-6">
@@ -56,9 +56,9 @@
         </div> <!-- form-group end.// -->    
     </div> <!-- form-row.// -->
     
-    <div class="form-row">
-        <button type="submit" class="btn btn-secondary">S'inscrire</button>
-    </div>
+    <p class="signin button">
+    	<input type="submit" class="btn btn-secondary"value="S'inscrire"/>
+    </p>
 </form>
 
 </div> 

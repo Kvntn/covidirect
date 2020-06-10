@@ -17,11 +17,11 @@ include "../essentials/nav.php";
 $nb_char = 6;
 
 
-if (strlen($_POST['motDePasse']) < $nb_char) {
+if (strlen($_POST['password']) < $nb_char) {
     echo "Mot de passe trop court !";
 }
 
-if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $_POST['motDePasse'])) {
+if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $_POST['password'])) {
     echo 'Mot de passe conforme';
 } else {
     echo '<script> document.location.replace("register.php"); </script>';
@@ -30,32 +30,26 @@ if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $_POST['motDePass
 
 
 
-if($_POST['confirmPassword'] != $_POST['motDePasse']){
+if($_POST['pwtest'] != $_POST['password']){
     echo "<h1>Les mots de passe ne correspondent pas</h1>";
     echo '<script> document.location.replace("register.php"); </script>';
     die();
 }
     
-$_POST['motDePasse'] = md5($_POST['motDePasse']);
-
-
-if(!isset($_POST['Photo'])) {
-    $_POST['Photo'] = null;
-}
-
+$_POST['password'] = md5($_POST['password']);
 
 $bdd = db_covidirect::getInstance();
 
-$LocalRequest = $bdd->prepare("INSERT INTO utilisateurs(iduser, email, nom, prenom, pw, userlocation, userphoto) 
-                        VALUES (null,:email,:xname,:fname,:mdp,:stat,:pdp)");
+$LocalRequest = $bdd->prepare("INSERT INTO users(iduser, email, nom, prenom, userlocation, userphoto, pw) 
+                        VALUES (null,:email,:xname,:fname,:userloc,:userpic,:passw)");
 
 
 $LocalRequest->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
-$LocalRequest->bindValue(':fname', $tmp[0], PDO::PARAM_STR);
-$LocalRequest->bindValue(':xname', $tmp[1], PDO::PARAM_STR);
-$LocalRequest->bindValue(':mdp', $_POST['motDePasse'], PDO::PARAM_STR);
-$LocalRequest->bindValue(':stat', $_POST['stat'], PDO::PARAM_INT);
-$LocalRequest->bindValue(':pdp', $_POST['Photo'], PDO::PARAM_STR);
+$LocalRequest->bindValue(':xname', $_POST['nom'], PDO::PARAM_STR);
+$LocalRequest->bindValue(':xname', $_POST['prenom'], PDO::PARAM_STR);
+$LocalRequest->bindValue(':userloc', $_POST['userlocation'], PDO::PARAM_STR);
+$LocalRequest->bindValue(':userpic', $_POST['userphoto'], PDO::PARAM_INT);
+$LocalRequest->bindValue(':passw', $_POST['pw'], PDO::PARAM_STR);
 
 $LocalRequest->execute();
 $LocalRequest->closeCursor();
