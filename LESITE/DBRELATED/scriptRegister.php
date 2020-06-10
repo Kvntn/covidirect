@@ -40,16 +40,16 @@ $_POST['password'] = md5($_POST['password']);
 
 $bdd = db_covidirect::getInstance();
 
-$LocalRequest = $bdd->prepare("INSERT INTO users(iduser, email, nom, prenom, userlocation, userphoto, pw) 
-                        VALUES (null,:email,:xname,:fname,:userloc,:userpic,:passw)");
+$LocalRequest = $bdd->prepare("INSERT INTO users(email, nom, prenom, userlocation, userphoto, pw) 
+                        VALUES (:email,:xname,:fname,:userloc,:userpic,:passw)");
 
 
 $LocalRequest->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
 $LocalRequest->bindValue(':xname', $_POST['nom'], PDO::PARAM_STR);
-$LocalRequest->bindValue(':xname', $_POST['prenom'], PDO::PARAM_STR);
+$LocalRequest->bindValue(':fname', $_POST['prenom'], PDO::PARAM_STR);
 $LocalRequest->bindValue(':userloc', $_POST['userlocation'], PDO::PARAM_STR);
 $LocalRequest->bindValue(':userpic', $_POST['userphoto'], PDO::PARAM_INT);
-$LocalRequest->bindValue(':passw', $_POST['pw'], PDO::PARAM_STR);
+$LocalRequest->bindValue(':passw', $_POST['password'], PDO::PARAM_STR);
 
 $LocalRequest->execute();
 $LocalRequest->closeCursor();
