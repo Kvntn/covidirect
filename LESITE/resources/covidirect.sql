@@ -27,7 +27,7 @@ CREATE TABLE ad(
         idad           Int  Auto_increment  NOT NULL ,
         statut         BOOLEAN NOT NULL ,
         title          Varchar (5) NOT NULL ,
-        description    Text NOT NULL ,
+        descriptionad    Text NOT NULL ,
         datead         Varchar (10) NOT NULL ,
         expirationdate Varchar (10) NOT NULL ,
         typead         Varchar (10) NOT NULL ,
@@ -70,9 +70,9 @@ CREATE TABLE chatroom(
 # Table: message
 #------------------------------------------------------------
 
-CREATE TABLE message(
+CREATE TABLE messages(
         idmessage  Int  Auto_increment  NOT NULL ,
-        message    Varchar (240) NOT NULL ,
+        messages    Varchar (240) NOT NULL ,
         datemessage Varchar (10) NOT NULL ,
         idchatroom Int NOT NULL ,
         iduser     Int NOT NULL
