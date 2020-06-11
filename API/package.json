@@ -2,9 +2,9 @@
   "name": "covidirectapi",
   "version": "1.0.0",
   "description": "",
-  "main": "models/index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "nodemon models/index.js"
+    "test": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "md5": "^2.2.1",
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.4",
     "orm": "^5.0.5",
