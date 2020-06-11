@@ -6,7 +6,7 @@ var md5 = require('md5');
 // Create and Save a new user
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.nom || !req.body.prenom || !req.body.pw || !req.body.email || !req.body.userlocation) {
+    if (!req.body.nom || !req.body.firstname || !req.body.pw || !req.body.email || !req.body.userlocation) {
         res.status(400).send({
             message: `Missing parameters, please fill the body with :`,
             email: 'STRING',
@@ -22,7 +22,6 @@ exports.create = (req, res) => {
     var user = {
         email: req.body.email,
         nom: req.body.nom,
-        prenom: req.body.firstname,
         userphoto: req.body.userphoto ? req.body.userphoto : false,
         userlocation: req.body.userlocation,
         pw: md5(req.body.pw)
@@ -61,7 +60,7 @@ exports.findEmail = (req, res) => {
         });
 };
 
-exports.findLocation = (req, res) => {
+exports.findByLocation = (req, res) => {
     var userlocation = req.query.userlocation;
     var condition = userlocation ? {
         userlocation: {
@@ -77,15 +76,36 @@ exports.findLocation = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message: err.message ||  `Some error occurred while retrieving users in %${userlocation}%.`
+                message: err.message || `Some error occurred while retrieving users by userlocations %${userlocation}%.`
             });
         });
 };
 
 
 // Find a single user with an id
+exports.findName = (req, res) => {
+    var nom = req.query.nom;
+    var condition = nom ? {
+        nom: {
+            [Op.like]: `%${nom}%`
+        }
+    } : null;
+
+    Users.findOne({
+            where: condition
+        })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || `Some error occurred while retrieving user with firstname %${nom}%.`
+            });
+        });
+};
+
 exports.findFirstname = (req, res) => {
-    var prenom = req.query.prenom;
+    var prenom = req.query.firstname;
     var condition = prenom ? {
         prenom: {
             [Op.like]: `%${prenom}%`
