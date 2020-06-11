@@ -26,7 +26,7 @@ CREATE TABLE users(
 CREATE TABLE ad(
         idad           Int  Auto_increment  NOT NULL ,
         statut         BOOLEAN NOT NULL ,
-        title          Varchar (5) NOT NULL ,
+        title          Varchar (255) NOT NULL ,
         descriptionad    Text NOT NULL ,
         datead         Varchar (10) NOT NULL ,
         expirationdate Varchar (10) NOT NULL ,
