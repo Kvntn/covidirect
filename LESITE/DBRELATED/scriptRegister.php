@@ -11,7 +11,24 @@ try{
 }
 
 include "../essentials/header.php";
-include "../essentials/nav.php";
+
+
+$bdd = db_covidirect::getInstance();
+
+//unicité du mail dans la bdd
+$requete = $bdd->prepare("SELECT * FROM users WHERE email=:email");
+
+$requete->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
+
+$requete->execute();
+$arr = $requete->fetchAll();
+$requete->closeCursor();
+var_dump($arr);
+if($arr != NULL) {
+    echo '<script> document.location.replace("./register.php"); </script>';
+    echo "L'email de cet utilisateur existe déjà";
+    die(); 
+}
 
 //Longueur du mots de passe
 $nb_char = 6;
@@ -38,7 +55,6 @@ if($_POST['pwtest'] != $_POST['password']){
     
 $_POST['password'] = md5($_POST['password']);
 
-$bdd = db_covidirect::getInstance();
 
 $LocalRequest = $bdd->prepare("INSERT INTO users(email, nom, prenom, userlocation, userphoto, pw) 
                         VALUES (:email,:xname,:fname,:userloc,:userpic,:passw)");

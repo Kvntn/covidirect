@@ -1,7 +1,7 @@
 <?php
     include("../essentials/header.php");
-    //include("../essentials/nav.php");
-    //include("../essentials/footer.php");
+    include("../essentials/nav.php");
+    include("../essentials/footer.php");
 ?>
 
 <div class="container-register container">
@@ -63,6 +63,4 @@
 
 </div> 
 <!--container end.//-->
-<?php
-	var_dump($_POST);
-?>
+ 

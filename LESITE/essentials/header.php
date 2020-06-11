@@ -1,3 +1,9 @@
+<?php 
+if (!isset($_SESSION)){
+    session_start();
+}
+?>
+
 <head>
     <title>Covidirect</title>
     <meta charset="utf-8">

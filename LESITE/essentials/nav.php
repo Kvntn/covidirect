@@ -15,10 +15,10 @@
             <a class="nav-link" href="../mainpage/index.php">Accueil <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Publier</a>
+            <a class="nav-link" href="../mainpage/ads.php">Publier</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link navi" href="../DBRELATED/login.php"><i class="fas fa-sign-in-alt"></i></a>
+            <a class="nav-link navi" href="../profile/login.php"><i class="fas fa-sign-in-alt"></i></a>
           </li>  
         </ul>  
       </div>

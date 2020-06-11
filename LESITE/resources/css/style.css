@@ -48,11 +48,19 @@ footer a:hover {
 
 .container-register {
    margin-bottom:4.5%;
-   margin-top:10%;
+   margin-top:6%;
 }
 
 .container-register .card {
     border:none;
+}
+
+.container-ads .card {
+    border:none;
+}
+.container-ads {
+    margin-bottom:4.5%;
+    margin-top:7%;
 }
 
 @media screen and (min-width: 100px) and (max-width:640px) {
