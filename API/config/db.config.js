@@ -2,7 +2,7 @@ module.exports = {
     HOST: "localhost",
     USER: "root",
     PASSWORD: "",
-    DB: "covidirect",
+    DB: "covidirectorm",
     dialect: "mysql",
     pool: {
         max: 50,
