@@ -13,7 +13,7 @@
 <div class="card">
 <article class="card-body">
         <h1 class="h3 mb-3 font-weight-normal"><i class="fas fa-shield-virus mb-4"></i> Veuillez vous enregistrer</h1>
-<form method="POST" action="./scriptRegister.php">
+<form method="POST" action="../DBRELATED/scriptRegister.php">
 	<div class="form-row">
 		<div class="col form-group">
 			<label>Prénom </label>   
