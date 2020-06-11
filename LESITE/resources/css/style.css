@@ -27,6 +27,13 @@
     color:white;
 }
 
+.footer img {
+    max-width: 40px;
+    max-height: fit-content;
+    margin-right:5px;
+    margin-bottom:5px;
+}
+
 footer a:hover {
     color:white;
 }
@@ -61,6 +68,24 @@ footer a:hover {
 .container-ads {
     margin-bottom:4.5%;
     margin-top:7%;
+}
+
+.container-index {
+    margin-bottom:4.5%;
+    margin-top:7%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.container-index img {
+    max-width: 40px;
+    max-height: fit-content;
+    margin-right:5px;
+    margin-bottom:5px;
+}
+
+.container-index .card-header {
+    font-size:25;
 }
 
 @media screen and (min-width: 100px) and (max-width:640px) {

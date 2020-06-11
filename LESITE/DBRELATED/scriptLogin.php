@@ -27,6 +27,7 @@ $requete->closeCursor();
 if ($arr != NULL) {
 
     $_SESSION                   = $arr[0];
+    $_SESSION['login']      = true;
 
     // if(isset($_COOKIE['accept_cookie']) && $_COOKIE['accept_cookie'] == true) {
     //     setcookie('firstname',$_SESSION['firstname'], time() + 24*3600, "/", null, false, true);
