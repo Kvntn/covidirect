@@ -1,11 +1,18 @@
 var app       = require('express');
 var usrCtrl   = require('../controller/user.controller.js');
+var masterCtrl = require('../controller/master.controller');
 //var prodCtrl  = require('./controllers/produitsCtrl');
 //var eventCtrl = require('./controllers/eventCtrl');
 //var vToken      = require('../security/VerifyToken');
 
 exports.router = (() => {
     var router = app.Router();
+
+    //Main route
+    router.route('/').post(masterCtrl.master);
+    router.route('/').get(masterCtrl.master);
+    router.route('/').delete(masterCtrl.master);
+    router.route('/').put(masterCtrl.master);
 
     //User-related routes
     router.route('/usr/new').post(usrCtrl.create);

@@ -18,6 +18,9 @@ var db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.Users = require("./user.model.js")(sequelize, Sequelize);
+db.Users = require("./user.model.js").user(sequelize, Sequelize);
+db.Ads = require("./ad.model.js").ad(sequelize, Sequelize);
+
+db.Ads.belongsTo(db.Users, {foreignKey: 'iduser'});
 
 module.exports = db;

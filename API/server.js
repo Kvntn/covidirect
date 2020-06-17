@@ -14,13 +14,7 @@ app
 .use(cors(corsOptions))
 .use(bodyParser.json())
 .use(bodyParser.urlencoded({extended: true}))
-.use(router)
-// API main gate
-.get("/", (req, res) => {
-    res.json({
-        message: "Welcome to CoviDirect API gate."
-    });
-});
+.use(router);
 
 // set port, listen for requests
 var PORT = process.env.PORT || 8080;
