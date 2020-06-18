@@ -6,11 +6,7 @@ var md5 = require('md5');
 // Create and Save a new user
 exports.create = (req, res) => {
     // Validate request
-<<<<<<< HEAD
-    if (!req.body.nom || !req.body.firstname || !req.body.pw || !req.body.email || !req.body.userlocation) {
-=======
     if (!req.body.nom || !req.body.prenom || !req.body.pw || !req.body.email || !req.body.userlocation) {
->>>>>>> API
         res.status(400).send({
             message: `Missing parameters, please fill the body with :`,
             email: 'STRING',
@@ -26,10 +22,7 @@ exports.create = (req, res) => {
     var user = {
         email: req.body.email,
         nom: req.body.nom,
-<<<<<<< HEAD
-=======
         prenom: req.body.firstname,
->>>>>>> API
         userphoto: req.body.userphoto ? req.body.userphoto : false,
         userlocation: req.body.userlocation,
         pw: md5(req.body.pw)
@@ -68,11 +61,7 @@ exports.findEmail = (req, res) => {
         });
 };
 
-<<<<<<< HEAD
-exports.findByLocation = (req, res) => {
-=======
 exports.findLocation = (req, res) => {
->>>>>>> API
     var userlocation = req.query.userlocation;
     var condition = userlocation ? {
         userlocation: {
@@ -88,18 +77,13 @@ exports.findLocation = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-<<<<<<< HEAD
                 message: err.message || `Some error occurred while retrieving users by userlocations %${userlocation}%.`
-=======
-                message: err.message ||  `Some error occurred while retrieving users in %${userlocation}%.`
->>>>>>> API
             });
         });
 };
 
 
 // Find a single user with an id
-<<<<<<< HEAD
 exports.findName = (req, res) => {
     var nom = req.query.nom;
     var condition = nom ? {
@@ -123,10 +107,6 @@ exports.findName = (req, res) => {
 
 exports.findFirstname = (req, res) => {
     var prenom = req.query.firstname;
-=======
-exports.findFirstname = (req, res) => {
-    var prenom = req.query.prenom;
->>>>>>> API
     var condition = prenom ? {
         prenom: {
             [Op.like]: `%${prenom}%`
