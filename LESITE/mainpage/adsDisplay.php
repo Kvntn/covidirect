@@ -1,16 +1,26 @@
 <?php
-    include("../essentials/header.php");
-    include("../essentials/nav.php");
-    include("../essentials/footer.php");
-?>
-<div class="container-index">
 
-<div class="row">
+if (!isset($_SESSION)){
+    session_start();
+}
 
-    <div class="col-md-6">
+
+class Ad
+{
+	private $listad;
+
+	function __construct($listad)
+	{
+		$this->listad=$listad;
+	}
+	
+	public function display($listad){
+    foreach($this->listad as $rows => $key){
+		echo '
+		<div class="col-md-6">
         <div class="card mb-6 box-shadow">
             <div class="card-header text-inline">
-                <img src="../resources/images/thomas.jpg" alt="..." class="img rounded-circle"> Thomas Lima
+                <img src="../resources/images/',$key[],''" alt="..." class="img rounded-circle"> Thomas Lima
             </div>
         <div class="card-body">
             <div class="card-title">
@@ -22,6 +32,8 @@
                 </div>
             </div>
         </div>
-    </div>
-
-</div>
+    </div>';
+		}
+	}
+}
+?>
