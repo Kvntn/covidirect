@@ -1,8 +1,15 @@
 module.exports = {
+<<<<<<< HEAD
     HOST: "35.204.245.68",
     USER: "admin",
     PASSWORD: "420",
     DB: "covidirect",
+=======
+    HOST: "localhost",
+    USER: "root",
+    PASSWORD: "",
+    DB: "covidirectorm",
+>>>>>>> API
     dialect: "mysql",
     pool: {
         max: 50,

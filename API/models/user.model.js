@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 exports.user = (sequelize, Sequelize) => {
 
     var User = sequelize.define("user", {
+=======
+module.exports = (sequelize, Sequelize) => {
+
+    const User = sequelize.define("user", {
+>>>>>>> API
         iduser: {
             type : Sequelize.INTEGER, 
             primaryKey: true,

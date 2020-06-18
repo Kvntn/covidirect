@@ -1,6 +1,9 @@
 var app       = require('express');
 var usrCtrl   = require('../controller/user.controller.js');
+<<<<<<< HEAD
 var masterCtrl = require('../controller/master.controller');
+=======
+>>>>>>> API
 //var prodCtrl  = require('./controllers/produitsCtrl');
 //var eventCtrl = require('./controllers/eventCtrl');
 //var vToken      = require('../security/VerifyToken');
@@ -8,6 +11,7 @@ var masterCtrl = require('../controller/master.controller');
 exports.router = (() => {
     var router = app.Router();
 
+<<<<<<< HEAD
     //Main route
     router.route('/').post(masterCtrl.master);
     router.route('/').get(masterCtrl.master);
@@ -20,6 +24,12 @@ exports.router = (() => {
     router.route('/user/findByLocation').get(usrCtrl.findByLocation);
     router.route('/user/findName').get(usrCtrl.findName);
     router.route('/user/findFirstname').get(usrCtrl.findFirstname);
+=======
+    //User-related routes
+    router.route('/usr/new').post(usrCtrl.create);
+    router.route('/usr/findemail').get(usrCtrl.findEmail);
+    router.route('/usr/findByLocation').get(usrCtrl.findByLocation);
+>>>>>>> API
     //router.route('/usr/login').post(usrCtrl.login);
 /*
     //Products routes
