@@ -2,6 +2,7 @@ var db = require("../models");
 var Users = db.Users;
 var Op = db.Sequelize.Op;
 var md5 = require('md5');
+var url = require("url");
 var qs = require('querystring');
 
 var request_error = 
@@ -21,21 +22,46 @@ var request_error =
 }
 exports.master = (req, res) => {
 
-    console.log(req.get('host'), req.originalUrl);
-    let tmp = qs.parse(req.originalUrl, '/');
-    if (tmp != null) {
-        var _target = temp[0];
-        var _function = temp[1];
+    console.log(req.get('host') + req.originalUrl);
+    let tmp = url.parse(req.originalUrl, true).path.split('/');
+    var tab = [];
+    let j = 0;
+    for (let i = 0; i < tmp.length; i++) {
+        if (tmp[i] != '') {
+            tab[j] = tmp[i];
+            j++;
+        }
+    }
+    console.log(tab);
+
+    if (tab) {
+        if(tab[0] == 'user') {
+            var _target = db.Users;
+            var _targetName = 'user';
+        };
+        var _function = tab[1];
     };
 
     // Validate request
     if (!req.body.nom || !req.body.firstname || !req.body.pw || !req.body.email || !req.body.userlocation || !tmp) {
         res.status(400).send(request_error); 
-    }
+    };
 
-    
+    console.log(_target, _function, req.body);
+
     // Creates a user
-    if (_target == 'user') {
+    if (_targetName == "user") {
+        var target_model = {
+            email: req.body.email,
+            nom: req.body.nom,
+            prenom: req.body.prenom,
+            userphoto: req.body.userphoto ? req.body.userphoto : false,
+            userlocation: req.body.userlocation,
+            pw: md5(req.body.pw)
+        };
+    }
+    // Creates an ad
+    else if (_target == "ad") {
         var target_model = {
             email: req.body.email,
             nom: req.body.nom,
@@ -44,46 +70,41 @@ exports.master = (req, res) => {
             pw: md5(req.body.pw)
         };
     }
-    // Creates a user
-    else if (_target == 'ad') {
-        var target_model = {
-            email: req.body.email,
-            nom: req.body.nom,
-            userphoto: req.body.userphoto ? req.body.userphoto : false,
-            userlocation: req.body.userlocation,
-            pw: md5(req.body.pw)
-        };
-    }
 
-    _target.create(target_model)
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: 'ERROR WHILE EXECUTING REQUEST "CREATE", CHECK YOUR CONNECTION, OR CONTACT THE ADMINISTRATOR',
-                default: request_error
+    console.log(target_model);
+
+    if (_function === "create") {
+        _target.create(target_model)
+            .then(data => {
+                res.send(data);
+            })
+            .catch(err => {
+                console.log(err);
+                res.status(500).send({
+                    message: 'ERROR WHILE EXECUTING REQUEST "CREATE", CHECK YOUR CONNECTION, OR CONTACT THE ADMINISTRATOR',
+                    default: request_error
+                });
             });
-        });
-};
+    };
 
-exports.findEmail = (req, res) => {
-    var email = req.query.email;
-    var condition = email ? {
-        email: {
-            [Op.like]: `%${email}%`
-        }
-    } : null;
+    if (_function === "findAll") {
+        var email = req.query.email;
+        var condition = email ? {
+            email: {
+                [Op.like]: `%${email}%`
+            }
+        } : null;
 
-    Users.findAll({
-            where: condition
-        })
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message: err.message || "Some error occurred while retrieving email."
+        _target.findAll({
+                where: condition
+            })
+            .then(data => {
+                res.send(data);
+            })
+            .catch(err => {
+                res.status(500).send({
+                    message: err.message || "Some error occurred while retrieving email."
+                });
             });
-        });
+    };
 };
