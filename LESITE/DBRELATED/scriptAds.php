@@ -1,7 +1,7 @@
 <?php
 
 //////////////////////////////////
-// ADDS NEW USER IN THE DATABASE//
+// ADDS NEW AD IN THE DATABASE//
 //////////////////////////////////
 
 try{
@@ -17,8 +17,10 @@ $bdd = db_covidirect::getInstance();
 $datead = 1;
 $expirationdate = 1;
 
-$LocalRequest = $bdd->prepare("INSERT INTO ad(statut, title, descriptionad, datead, expirationdate, typead) 
-                        VALUES (:statut,:title,:descriptionad,:datead,:expirationdate, :typead)");
+var_dump($_SESSION);
+
+$LocalRequest = $bdd->prepare("INSERT INTO ad(statut, title, descriptionad, datead, expirationdate, typead, adlocation, iduser) 
+                        VALUES (:statut,:title,:descriptionad,:datead,:expirationdate, :typead, :adlocation, :iduser)");
 
 
 $LocalRequest->bindValue(':statut', $_POST['statut'], PDO::PARAM_STR);
@@ -27,6 +29,8 @@ $LocalRequest->bindValue(':descriptionad', $_POST['descriptionad'], PDO::PARAM_S
 $LocalRequest->bindValue(':datead', $datead, PDO::PARAM_INT);
 $LocalRequest->bindValue(':expirationdate', $expirationdate, PDO::PARAM_STR);
 $LocalRequest->bindValue(':typead', $_POST['typead'], PDO::PARAM_STR);
+$LocalRequest->bindValue(':adlocation', $_SESSION['userlocation'], PDO::PARAM_STR);
+$LocalRequest->bindValue(':iduser', $_SESSION['iduser'], PDO::PARAM_STR);
 
 $LocalRequest->execute();
 $LocalRequest->closeCursor();

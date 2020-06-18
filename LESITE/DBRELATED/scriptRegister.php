@@ -24,7 +24,7 @@ $requete->execute();
 $arr = $requete->fetchAll();
 $requete->closeCursor();
 if($arr != NULL) {
-    //echo '<script> document.location.replace("../profile/register.php"); </script>';
+    echo '<script> document.location.replace("../profile/register.php"); </script>';
     echo "L'email de cet utilisateur existe déjà";
     die(); 
 }
@@ -40,15 +40,15 @@ if (strlen($_POST['password']) < $nb_char) {
 if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $_POST['password'])) {
     echo 'Mot de passe conforme';
 } else {
-    //echo '<script> document.location.replace("../profile/register.php"); </script>';
-    //die();
+    echo '<script> document.location.replace("../profile/register.php"); </script>';
+    die();
 }	
 var_dump("kaka");
 
 
 if($_POST['pwtest'] != $_POST['password']){
     echo "<h1>Les mots de passe ne correspondent pas</h1>";
-    //echo '<script> document.location.replace("../profile/register.php"); </script>';
+    echo '<script> document.location.replace("../profile/register.php"); </script>';
     die();
 }
     
