@@ -4,7 +4,7 @@ var Sequelize = require("sequelize");
 var sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     host: dbConfig.HOST,
     dialect: dbConfig.dialect,
-
+    //port: dbConfig.PORT,
     pool: {
         max: dbConfig.pool.max,
         min: dbConfig.pool.min,

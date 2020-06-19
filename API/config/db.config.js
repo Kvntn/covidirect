@@ -1,6 +1,7 @@
 module.exports = {
     HOST: "35.204.245.68",
-    USER: "admin",
+    PORT: "3306",
+    USER: "kvendev",
     PASSWORD: "420",
     DB: "covidirect",
     dialect: "mysql",
@@ -8,6 +9,6 @@ module.exports = {
         max: 50,
         min: 0,
         acquire: 30000,
-        idle: 10000
+        idle: 30000
     }
 };
