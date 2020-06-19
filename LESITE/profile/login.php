@@ -4,21 +4,13 @@
     include("../essentials/footer.php");
 ?>
 
-<script type="text/javascript">var ajax_url = 'https://mdbootstrap.com/wp-load.php';</script><script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
-<script type="text/javascript">var ajax_url = 'https://mdbootstrap.com/wp-load.php';</script><script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
-<script type="text/javascript">var ajax_url = 'https://mdbootstrap.com/wp-load.php';</script>
-<script>$('#draggable').draggable();</script>
-
-
-
-
 
 <div class="container-login">
 
 
 
 <div class="text-center">
-    <form class="form-signin" method="POST" action="../DBRELATED/scriptLogin.php">
+    <form class="form" method="POST" action="../DBRELATED/scriptLogin.php">
 
     <i class="fas fa-shield-virus mb-4"></i>
   

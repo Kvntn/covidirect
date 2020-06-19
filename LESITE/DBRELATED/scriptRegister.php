@@ -68,5 +68,5 @@ $LocalRequest->bindValue(':passw', $_POST['password'], PDO::PARAM_STR);
 
 $LocalRequest->execute();
 $LocalRequest->closeCursor();
-var_dump($_POST);
+header('Location: ../mainpage/index.php');
 ?>

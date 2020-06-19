@@ -31,7 +31,6 @@
     max-width: 40px;
     max-height: fit-content;
     margin-right:5px;
-    margin-bottom:5px;
 }
 
 footer a:hover {
@@ -79,13 +78,46 @@ footer a:hover {
 
 .container-index img {
     max-width: 40px;
-    max-height: fit-content;
     margin-right:5px;
     margin-bottom:5px;
 }
 
 .container-index .card-header {
     font-size:25;
+}
+
+.container-allprof {
+    margin-bottom:4.5%;
+    margin-top:7%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.container-feed {
+    margin-bottom:4.5%;
+    margin-top:5%;
+    margin-left: 45%;
+    margin-right: 3%;
+}
+
+.container-feed img {
+    max-width: 40px;
+    margin-right:5px;
+    margin-bottom:5px;
+}
+
+.container-feed .card {
+    margin-bottom:7px;
+}
+
+.container-profil {
+   margin-left:15px;
+   font-size: 20;
+}
+
+.container-profil img {
+    max-width: 100px;
+    margin-right:5%;
 }
 
 @media screen and (min-width: 100px) and (max-width:640px) {
