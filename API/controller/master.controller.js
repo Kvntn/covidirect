@@ -8,7 +8,7 @@ var qs = require('querystring');
 var request_error = 
 {
     url: `In order to complete a request, you should create a correct URL with :`,
-    url_structure: `http://34.65.152.48/:target/:function`,
+    url_structure: `http://34.105.171.41/:target/:function`,
     url_target: `user, ad`,
     url_function: `CRUD, find`,
     body: `For the arguments, please fill the body with :`,

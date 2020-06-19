@@ -16,10 +16,10 @@ exports.router = (() => {
 
     //User-related routes
     router.route('/user/create').post(masterCtrl.master);
-    router.route('/user/findemail').get(usrCtrl.findEmail);
-    router.route('/user/findByLocation').get(usrCtrl.findByLocation);
-    router.route('/user/findName').get(usrCtrl.findName);
-    router.route('/user/findFirstname').get(usrCtrl.findFirstname);
+    //router.route('/user/findemail').get(usrCtrl.findEmail);
+    //router.route('/user/findByLocation').get(usrCtrl.findLocation);
+    //router.route('/user/findName').get(usrCtrl.findName);
+    //router.route('/user/findFirstname').get(usrCtrl.findFirstname);
     //router.route('/usr/login').post(usrCtrl.login);
 /*
     //Products routes
