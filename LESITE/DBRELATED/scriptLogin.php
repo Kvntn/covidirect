@@ -40,7 +40,7 @@ if ($arr != NULL) {
 }else{
     echo '<h2>Utilisateur non trouvé !</h2>';
     session_destroy();
-    header("Location: ./login.php");
+    header("Location: login.php");
 }
 
 ?>

@@ -20,7 +20,7 @@ class Ad
 		<div class="col-md-6">
         <div class="card mb-6 box-shadow">
             <div class="card-header text-inline">
-                <img src="../resources/images/',$key[],''" alt="..." class="img rounded-circle"> Thomas Lima
+                <img src="../resources/images/" alt="..." class="img rounded-circle"> Thomas Lima
             </div>
         <div class="card-body">
             <div class="card-title">
