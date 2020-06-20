@@ -7,7 +7,7 @@
     if(isset($_SESSION['login']) && $_SESSION['login'] == true){
     echo'
     <a href="../profile/profile.php">
-    <div class="card-header text-inline">
+    <div class="text-inline">
         <img src="../resources/images/thomas.jpg" alt="..." class="img rounded-circle"> Thomas Lima
     </div>
     </a>';

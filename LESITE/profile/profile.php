@@ -14,7 +14,11 @@
         </div>
 
         <div class="card-body">
-            reacgtgtr
+            <ul class="list-group list-group-flush">
+                <a href=""><li class="list-group-item"><i class="fas fa-map-pin"></i>  78</li></a>
+                <a href=""><li class="list-group-item"><i class="far fa-star"></i> Liste des favoris</li></a>
+                <a href="../chat/chat.php"><li class="list-group-item"><i class="fas fa-envelope-open-text"></i>   Acceder à mes messages</li></a>
+            </ul>
         </div>
     </div>
 </div>
