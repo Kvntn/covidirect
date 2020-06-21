@@ -8,9 +8,26 @@ beta_settings:
 
 handlers:
 
-#static
-#    -   url         : /css
-#       static_dir  : resources/css
+#static / css
+    -   url         : /resources/css/
+        static_dir  : LESITE/resources/css/
+
+
+#static / images
+    -   url         : /resources/images/
+        static_dir  : LESITE/resources/images/
+
+
+#test
+    -   url         : /testcss.php
+        script      : testcss.php
+
+
+#init
+
+    -   url         : /
+        script      : LESITE/mainpage/index.php
+
 
 #chat
 
@@ -34,6 +51,7 @@ handlers:
 
     -   url         : /DBRELATED/scriptRegister.php
         script      : LESITE/DBRELATED/scriptRegister.php
+
 
 #essentials
 
