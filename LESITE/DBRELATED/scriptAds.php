@@ -17,7 +17,7 @@ $bdd = db_covidirect::getInstance();
 $datead = 1;
 $expirationdate = 1;
 
-var_dump($_SESSION);
+
 
 $LocalRequest = $bdd->prepare("INSERT INTO ad(statut, title, descriptionad, datead, expirationdate, typead, adlocation, iduser) 
                         VALUES (:statut,:title,:descriptionad,:datead,:expirationdate, :typead, :adlocation, :iduser)");
@@ -34,5 +34,7 @@ $LocalRequest->bindValue(':iduser', $_SESSION['iduser'], PDO::PARAM_STR);
 
 $LocalRequest->execute();
 $LocalRequest->closeCursor();
+
+header("Location: login.php");
 
 ?>

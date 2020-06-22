@@ -26,7 +26,7 @@ $requete->closeCursor();
 
 if ($arr != NULL) {
 
-    $_SESSION                   = $arr[0];
+    $_SESSION               = $arr[0];
     $_SESSION['login']      = true;
 
     // if(isset($_COOKIE['accept_cookie']) && $_COOKIE['accept_cookie'] == true) {
@@ -40,7 +40,7 @@ if ($arr != NULL) {
 }else{
     echo '<h2>Utilisateur non trouvé !</h2>';
     session_destroy();
-    header("Location: login.php");
+    header("Location: ../profile/login.php");
 }
 
 ?>

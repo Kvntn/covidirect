@@ -43,7 +43,6 @@ if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $_POST['password'
     echo '<script> document.location.replace("../profile/register.php"); </script>';
     die();
 }	
-var_dump("kaka");
 
 
 if($_POST['pwtest'] != $_POST['password']){
