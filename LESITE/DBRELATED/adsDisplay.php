@@ -21,7 +21,8 @@ class Ads
         if (isset($key['prenom'])){
         echo '<div class="col-md-6">';
         }
-        echo '            
+        echo '
+        <a href="../mainpage/singleAd.php">           
             <div class="card mb-6 box-shadow">
                 <div class="card-header text-inline">
                     <img src="../resources/images/" alt="..." class="img rounded-circle">', $key['nom'], ' ', $key['prenom'], '
@@ -34,8 +35,12 @@ class Ads
                 <div class="d-flex justify-content-between align-items-center">
                     <p><small class="text-muted">Postée le ', $key['datead'],'<br>  #',$key['typead'],'</small></p>
                 </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <p><i class="far fa-star"></i><i class="far fa-star"></i></p>
+                </div>
             </div>
             </div>
+        </a>
         ';
 
         if (isset($key['prenom'])){
