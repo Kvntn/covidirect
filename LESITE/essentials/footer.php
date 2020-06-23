@@ -8,7 +8,7 @@
     echo'
     <a href="../profile/profile.php">
     <div class="text-inline">
-        <img src="../resources/images/thomas.jpg" alt="..." class="img rounded-circle"> Thomas Lima
+        <img src="../resources/images/thomas.jpg" alt="..." class="img rounded-circle"> ',$_SESSION['nom'],' ',$_SESSION['prenom'],'
     </div>
     </a>';
     }

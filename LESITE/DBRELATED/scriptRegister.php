@@ -43,7 +43,6 @@ if (preg_match('#^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W)#', $_POST['password'
     echo '<script> document.location.replace("../profile/register.php"); </script>';
     die();
 }	
-var_dump("kaka");
 
 
 if($_POST['pwtest'] != $_POST['password']){
@@ -54,7 +53,6 @@ if($_POST['pwtest'] != $_POST['password']){
     
 $_POST['password'] = md5($_POST['password']);
 
-var_dump($_POST);
 $LocalRequest = $bdd->prepare("INSERT INTO users(email, nom, prenom, userlocation, userphoto, pw) 
                         VALUES (:email,:xname,:fname,:userloc,:userpic,:passw)");
 
@@ -68,5 +66,5 @@ $LocalRequest->bindValue(':passw', $_POST['password'], PDO::PARAM_STR);
 
 $LocalRequest->execute();
 $LocalRequest->closeCursor();
-header('Location: ../mainpage/index.php');
+echo '<script> document.location.replace("../mainpage/index.php"); </script>';
 ?>

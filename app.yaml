@@ -1,0 +1,92 @@
+runtime: php55
+api_version: 1
+
+
+beta_settings:
+    cloud_sql_instance: rare-array-280013:europe-west4:covidirect-database-mysql
+
+
+handlers:
+
+#static / css
+    -   url         : /resources/css/
+        static_dir  : LESITE/resources/css/
+
+
+#static / images
+    -   url         : /resources/images/
+        static_dir  : LESITE/resources/images/
+
+
+#test
+    -   url         : /testcss.php
+        script      : testcss.php
+
+
+#init
+
+    -   url         : /
+        script      : LESITE/mainpage/index.php
+
+
+#chat
+
+    -   url         : /chat/chat.php
+        script      : LESITE/chat/chat.php
+
+
+#DBRELATED
+
+    -   url         : /DBRELATED/config.php
+        script      : LESITE/DBRELATED/config.php
+
+    -   url         : /DBRELATED/pdo_covidirect.php
+        script      : LESITE/DBRELATED/pdo_covidirect.php
+
+    -   url         : /DBRELATED/scriptAds.php
+        script      : LESITE/DBRELATED/scriptAds.php    
+
+    -   url         : /DBRELATED/scriptLogin.php
+        script      : LESITE/DBRELATED/scriptLogin.php  
+
+    -   url         : /DBRELATED/scriptRegister.php
+        script      : LESITE/DBRELATED/scriptRegister.php
+
+
+#essentials
+
+    -   url         : /essentials/footer.php 
+        script      : LESITE/essentials/footer.php
+        
+    -   url         : /essentials/header.php
+        script      : LESITE/essentials/header.php
+        
+    -   url         : /essentials/nav.php
+        script      : LESITE/essentials/nav.php
+
+
+#mainpage
+
+    -   url         : /mainpage/ads.php
+        script      : LESITE/mainpage/ads.php
+        
+    -   url         : /mainpage/adsDisplay.php
+        script      : LESITE/mainpage/adsDisplay.php
+        
+    -   url         : /mainpage/index.php
+        script      : LESITE/mainpage/index.php
+
+
+#profile   
+    -   url         : /profile/login.php
+        script      : LESITE/profile/login.php
+    
+    -   url         : /profile/profile.php
+        script      : LESITE/profile/profile.php
+    
+    -   url         : /profile/register.php
+        script      : LESITE/profile/register.php
+
+    -   url         : /profile/fav.php
+        script      : LESITE/profile/fav.php
+
