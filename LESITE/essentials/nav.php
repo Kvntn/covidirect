@@ -1,28 +1,37 @@
-<?php
-    include("header.php");
-?>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="../mainpage/index.php"><i class="fas fa-shield-virus"></i>Covidirect</a>
-      
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarsitem">
-        <ul class="navbar-nav mr-auto d-flex justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="../mainpage/index.php">Accueil <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../mainpage/ads.php">Publier</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link navi" href="../profile/login.php"><i class="fas fa-sign-in-alt"></i></a>
-          </li>  
-        </ul>  
-      </div>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#"><i class="fas fa-shield-virus fa-lg" style="margin-left:10px;margin-right:10px;"></i>Covidirect</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse d-flex bd-highlight" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="../mainpage/index.php">Acceuil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../mainpage/ads.php">Poster une annonce</a>
+      </li>
+      <?php
+      if($_SESSION['login']) {
+      echo'
+      <li class="nav-item">
+        <a class="nav-link" href="../profile/login.php">Se connecter<i style="margin-left:10px;"class="fas fa-sign-in-alt fa-sm"></i></a>
+      </li>';
+    }
+    else {
+    echo'
+    <li class="nav-item">
+        <a class="nav-link" href="../profile/register.php">Se deconnecter<i style="margin-left:10px;" class="fas fa-sign-in-alt fa-sm"></i></a>
+      </li>';
+    
+    }
+      ?>    
+    </ul>
+  </div>  
 </nav>
 
-
-
+<?php
+  include("header.php");
+?>
