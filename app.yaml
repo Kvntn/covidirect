@@ -17,12 +17,6 @@ handlers:
     -   url         : /resources/images/
         static_dir  : LESITE/resources/images/
 
-
-#test
-    -   url         : /testcss.php
-        script      : testcss.php
-
-
 #init
 
     -   url         : /
@@ -36,6 +30,9 @@ handlers:
 
 
 #DBRELATED
+
+    -   url         : /mainpage/adsDisplay.php
+        script      : LESITE/DBRELATED/adsDisplay.php
 
     -   url         : /DBRELATED/config.php
         script      : LESITE/DBRELATED/config.php
@@ -70,9 +67,9 @@ handlers:
     -   url         : /mainpage/ads.php
         script      : LESITE/mainpage/ads.php
         
-    -   url         : /mainpage/adsDisplay.php
-        script      : LESITE/mainpage/adsDisplay.php
-        
+    -   url         : /mainpage/singleAd.php
+        script      : LESITE/mainpage/singleAd.php
+
     -   url         : /mainpage/index.php
         script      : LESITE/mainpage/index.php
 
