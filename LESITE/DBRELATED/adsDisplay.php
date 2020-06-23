@@ -22,8 +22,9 @@ class Ads
         echo '<div class="col-md-6">';
         }
         echo '
-        <a href="../mainpage/singleAd.php">           
+                   
             <div class="card mb-6 box-shadow singlead">
+            <a href="../mainpage/singleAd.php">
                 <div class="card-header text-inline">
                     <img src="../resources/images/" alt="..." class="img rounded-circle">', $key['nom'], ' ', $key['prenom'], '
                 </div>
@@ -39,8 +40,9 @@ class Ads
                     <p><i class="far fa-star"></i><i class="far fa-star"></i></p>
                 </div>
             </div>
+            </a>
             </div>
-        </a>
+        
         ';
 
         if (isset($key['prenom'])){
