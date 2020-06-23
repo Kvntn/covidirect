@@ -23,7 +23,7 @@ class Ads
         }
         echo '
         <a href="../mainpage/singleAd.php">           
-            <div class="card mb-6 box-shadow">
+            <div class="card mb-6 box-shadow singlead">
                 <div class="card-header text-inline">
                     <img src="../resources/images/" alt="..." class="img rounded-circle">', $key['nom'], ' ', $key['prenom'], '
                 </div>
