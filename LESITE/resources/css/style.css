@@ -28,9 +28,10 @@
 }
 
 .footer img {
-    max-width: 30px;
+    max-width: 40px;
     max-height: fit-content;
     margin-right:5px;
+    margin-left:10px;
 }
 
 footer a:hover {
