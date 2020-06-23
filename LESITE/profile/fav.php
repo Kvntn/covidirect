@@ -16,14 +16,12 @@
         <div class="card-body">
             <ul class="list-group list-group-flush">
                 <a href=""><li class="list-group-item"><i class="fas fa-map-pin"></i> <?php echo $_SESSION['userlocation']; ?> </li></a>
-                <a href="fav.php"><li class="list-group-item"><i class="far fa-star"></i> Liste des favoris</li></a>
+                <a href="favoris.php"><li class="list-group-item"><i class="far fa-star"></i> Liste des favoris</li></a>
                 <a href="../chat/chat.php"><li class="list-group-item"><i class="fas fa-envelope-open-text"></i>   Acceder à mes messages</li></a>
             </ul>
         </div>
     </div>
 </div>
-
-
 
 <div class="container-feed">
 <div class="row">
@@ -40,7 +38,7 @@
             }
             $bdd = db_covidirect::getInstance();
   
-            $requete = $bdd->prepare("SELECT * from ad where iduser=:iduser");
+            $requete = $bdd->prepare("SELECT * from ad inner join to_fav on ad.idad=to_fav.idad inner join users on ad.iduser=users.iduser where to_fav.iduser=37");
 
             $requete->bindValue(':iduser', $_SESSION['iduser'], PDO::PARAM_INT);
 

@@ -35,11 +35,11 @@
         <div class="col form-group">
             <label for="exampleFormControlSelect1">Type de l'annonce</label>
             <select name="typead" class="form-control">
-            <option value="0">Service</option>
-            <option value="1">Transport</option>
-            <option value="2">Matériel</option>
-            <option value="3">Hébergement</option>
-            <option value="5">Autre</option>
+            <option value="Service">Service</option>
+            <option value="Transport">Transport</option>
+            <option value="Materiel">Matériel</option>
+            <option value="Hebergement">Hébergement</option>
+            <option value="Autre">Autre</option>
             </select>
         </div>
     </div>

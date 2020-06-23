@@ -87,3 +87,6 @@ handlers:
     -   url         : /profile/register.php
         script      : LESITE/profile/register.php
 
+    -   url         : /profile/fav.php
+        script      : LESITE/profile/fav.php
+

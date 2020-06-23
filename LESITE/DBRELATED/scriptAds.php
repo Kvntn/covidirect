@@ -35,6 +35,6 @@ $LocalRequest->bindValue(':iduser', $_SESSION['iduser'], PDO::PARAM_STR);
 $LocalRequest->execute();
 $LocalRequest->closeCursor();
 
-header("Location: login.php");
+header("Location: .php");
 
 ?>
