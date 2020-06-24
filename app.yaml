@@ -43,6 +43,9 @@ handlers:
     -   url         : /DBRELATED/scriptAds.php
         script      : LESITE/DBRELATED/scriptAds.php    
 
+    -   url         : /DBRELATED/scriptComment.php
+        script      : LESITE/DBRELATED/scriptComment.php   
+
     -   url         : /DBRELATED/scriptLogin.php
         script      : LESITE/DBRELATED/scriptLogin.php  
 

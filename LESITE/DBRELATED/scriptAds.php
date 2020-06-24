@@ -30,7 +30,7 @@ $LocalRequest = $bdd->prepare("INSERT INTO ad(statut, title, descriptionad, date
 
 $LocalRequest->bindValue(':statut', $_POST['statut'], PDO::PARAM_STR);
 $LocalRequest->bindValue(':title', $_POST['title'], PDO::PARAM_STR);
-$LocalRequest->bindValue(':descriptionad', $_POST['descriptionad'], PDO::PARAM_STR);
+$LocalRequest->bindValue(':descriptionad', $_POST['descriptionad'], PDO::PARAM_LOB);
 $LocalRequest->bindValue(':datead', $datead, PDO::PARAM_STR);
 $LocalRequest->bindValue(':expirationdate', $expirationdate, PDO::PARAM_STR);
 $LocalRequest->bindValue(':typead', $_POST['typead'], PDO::PARAM_STR);
