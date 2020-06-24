@@ -24,7 +24,7 @@ $expirationdate = date("d-m-Y", strtotime($datead.' + 180 Days'));
 
 
 
-$LocalRequest = $bdd->prepare("INSERT INTO ad(statut, title, descriptionad, datead, expirationdate, typead, adlocation, iduser) 
+$LocalRequest = $bdd->prepare("INSERT INTO ads(statut, title, descriptionad, datead, expirationdate, typead, adlocation, iduser) 
                         VALUES (:statut,:title,:descriptionad,:datead,:expirationdate, :typead, :adlocation, :iduser)");
 
 

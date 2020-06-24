@@ -40,7 +40,7 @@
             }
             $bdd = db_covidirect::getInstance();
   
-            $requete = $bdd->prepare("SELECT * from ad where iduser=:iduser");
+            $requete = $bdd->prepare("SELECT * from ads where iduser=:iduser");
 
             $requete->bindValue(':iduser', $_SESSION['iduser'], PDO::PARAM_INT);
 

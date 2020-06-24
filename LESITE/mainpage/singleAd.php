@@ -12,19 +12,19 @@
           throw new Exception("No config ! Incorrect file path or the file is corrupted");
       }
     $bdd = db_covidirect::getInstance();
-    $requete = $bdd->prepare("SELECT * from ad inner join users on ad.iduser = users.iduser WHERE ad.idad=:idad");
+    $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser WHERE ads.idad=:idad");
 
     $requete->bindValue(':idad', $_GET['id'], PDO::PARAM_INT);    
     $requete->execute();
     $ad = $requete->fetch();
-//    $requete->closeCursor();
+    $requete->closeCursor();
     
     $bdd2 = db_covidirect::getInstance();
     $requete2 = $bdd2->prepare("SELECT * from comments inner join users on comments.iduser = users.iduser WHERE comments.idad=:idad");
     $requete2->bindValue(':idad', $_GET['id'], PDO::PARAM_INT);    
     $requete2->execute();
-    $listcomm = $requete2->fetch();
-//    $requete2->closeCursor();
+    $listcomm = $requete2->fetchAll();
+    $requete2->closeCursor();
 
 ?>
 
@@ -58,7 +58,7 @@
                 </div>
                 <p class="card-text"><?php echo $ad['descriptionad']; ?></p>
                 <div class="d-flex justify-content-between ">
-                    <p><small class="text-muted">Postée le <?php echo $ad['datead']; ?> et valable jusqu'au <?php echo $ad['expirationdate']; ?></small></p>
+                    <p><small class="text-muted">Postée le <?php echo $ad['datead']; ?>, valable jusqu'au <?php echo $ad['expirationdate']; ?></small></p>
                     <p><small class="text-muted">#<?php echo $ad['typead']; ?></small></p>
                 </div>
                 <div class="d-flex justify-content-between">

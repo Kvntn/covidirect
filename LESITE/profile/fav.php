@@ -38,7 +38,7 @@
             }
             $bdd = db_covidirect::getInstance();
   
-            $requete = $bdd->prepare("SELECT * from ad inner join to_fav on ad.idad=to_fav.idad inner join users on ad.iduser=users.iduser where to_fav.iduser=37");
+            $requete = $bdd->prepare("SELECT * from ads inner join to_fav on ads.idad=to_fav.idad inner join users on ads.iduser=users.iduser where to_fav.iduser=37");
 
             $requete->bindValue(':iduser', $_SESSION['iduser'], PDO::PARAM_INT);
 

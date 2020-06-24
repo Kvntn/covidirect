@@ -29,7 +29,7 @@
           $products = new Product($listproducts);
           $products->display($listproducts);
         }*/
-          $requete = $bdd->prepare("SELECT * from ad inner join users on ad.iduser = users.iduser");
+          $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser");
           $requete->execute();
           $listad = $requete->fetchAll();
           $ads = new Ads($listad);
