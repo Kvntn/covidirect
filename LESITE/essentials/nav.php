@@ -23,8 +23,12 @@
     else {
     echo'
     <li class="nav-item">
+        <a class="nav-link" href="../profile/profile.php">Mon profil</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="../profile/register.php">Se deconnecter<i style="margin-left:10px;" class="fas fa-sign-in-alt fa-sm"></i></a>
-      </li>';
+      </li>
+     ';
     
     }
       ?>    

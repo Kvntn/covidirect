@@ -47,6 +47,7 @@
   </div>
 
 <div class="tab-content">
+    
   <div class="card-body tab-pane active" id="p1">
 
         <div class="card-header bg-white">
