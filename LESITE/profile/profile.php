@@ -10,7 +10,7 @@
 <div class="container-profil">
     <div class="card position-fixed" style="width: 35rem;">
         <div class="card-header text-center">
-            <img src="../resources/images/thomas.jpg" alt="..." class="img rounded-circle"> <?php echo $_SESSION['nom'], $_SESSION['prenom']; ?>
+            <img src="../resources/images/thomas.jpg" alt="..." class="img rounded-circle"> <?php echo $_SESSION['nom'], ' ' ,$_SESSION['prenom']; ?>
         </div>
 
         <div class="card-body">
