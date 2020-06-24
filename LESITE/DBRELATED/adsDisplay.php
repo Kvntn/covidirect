@@ -22,8 +22,8 @@ class Ads
         echo '<div class="col-md-6">';
         }
         echo '
-        <a href="../mainpage/singleAd.php">     
-            <div class="card mb-6 box-shadow singlead">
+        <a href="../mainpage/singleAd.php?id=', $key['idad'] ,'">     
+            <div class="card mb-6 box-shadow" style="margin-bottom:20px">
                 <div class="card-header text-inline">
                     <img src="../resources/images/" alt="..." class="img rounded-circle">', $key['nom'], ' ', $key['prenom'], '
                 </div>

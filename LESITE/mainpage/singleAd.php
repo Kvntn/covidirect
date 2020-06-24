@@ -2,6 +2,19 @@
     include("../essentials/header.php");
     include("../essentials/nav.php");
     include("../essentials/footer.php");
+
+    require('../DBRELATED/pdo_covidirect.php');
+      try{
+          require("../DBRELATED/config.php");
+      }catch(Exception $e) {
+          throw new Exception("No config ! Incorrect file path or the file is corrupted");
+      }
+    $bdd = db_covidirect::getInstance();
+    $requete = $bdd->prepare("SELECT * from ad inner join users on ad.iduser = users.iduser WHERE ad.idad=:idad");
+
+    $requete->bindValue(':idad', $_GET['id'], PDO::PARAM_INT);    
+    $requete->execute();
+    $ad = $requete->fetch();
 ?>
 
 <div class="container-singlead">
@@ -14,7 +27,7 @@
         <a class="nav-link active" href="#p1" data-toggle="tab">Annonce</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#p2" data-toggle="tab">Commentaire</a>
+        <a class="nav-link" href="#p2" data-toggle="tab">Commentaires</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#p3" data-toggle="tab">Poster un commentaire</a>
@@ -26,16 +39,16 @@
   <div class="card-body tab-pane active" id="p1">
 
         <div class="card-header bg-white">
-            <img src="../resources/images/thomas.jpg" alt="..." class="img rounded-circle text-inline">Thomas Lima
+            <img src="../resources/images/thomas.jpg" alt="..." class="img rounded-circle text-inline"> <?php echo $ad['nom'], ' ' , $ad['prenom']; ?>
         </div>
         <div class="card-body">
                 <div class="card-title">
-                    <h5>annonce title</h5>
+                    <h5><?php echo $ad['title']; ?></h5>
                 </div>
-                <p class="card-text">Novo denique perniciosoque exemplo idem Gallus ausus est inire flagitium grave, quod Romae cum ultimo dedecore temptasse aliquando dicitur Gallienus, et adhibitis paucis clam ferro succinctis vesperi per tabernas palabatur et conpita quaeritando Graeco sermone, cuius erat inpendio gnarus, quid de Caesare quisque sentiret. et haec confidenter agebat in urbe ubi pernoctantium luminum claritudo dierum solet imitari fulgorem. postremo agnitus saepe iamque, si prodisset, conspicuum se fore contemplans, non nisi luce palam egrediens ad agenda quae putabat seria cernebatur. et haec quidem medullitus multis gementibus agebantur.</p>
+                <p class="card-text"><?php echo $ad['descriptionad']; ?></p>
                 <div class="d-flex justify-content-between ">
-                    <p><small class="text-muted">Postée le 00/00/00</small></p>
-                    <p><small class="text-muted">#aide</small></p>
+                    <p><small class="text-muted">Postée le <?php echo $ad['datead']; ?> et valable jusqu'au <?php echo $ad['expirationdate']; ?></small></p>
+                    <p><small class="text-muted">#<?php echo $ad['typead']; ?></small></p>
                 </div>
                 <div class="d-flex justify-content-between">
                     <p><i style="margin-right:10px;color:gold;" class="far fa-star fa-lg"></i>    Ajouter aux favoris</p>

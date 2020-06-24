@@ -14,7 +14,7 @@
         <a class="nav-link" href="../mainpage/ads.php">Poster une annonce</a>
       </li>
       <?php
-      if($_SESSION['login']) {
+      if(!isset($_SESSION['login'])) {
       echo'
       <li class="nav-item">
         <a class="nav-link" href="../profile/login.php">Se connecter<i style="margin-left:10px;"class="fas fa-sign-in-alt fa-sm"></i></a>
