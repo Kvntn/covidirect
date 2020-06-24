@@ -74,6 +74,11 @@ footer a:hover {
   text-decoration:none;
 }
 
+.container-searchbar {
+    margin-top:5%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
 
 .container-allprof {
     margin-bottom:4.5%;
