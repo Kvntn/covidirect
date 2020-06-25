@@ -25,6 +25,7 @@ class Comment
         <h4><img class="img rounded-circle" src="../resources/images/thomas.jpg" style="max-width: 50px; height:50px;" alt="">', $key['nom'], ' ', $key['prenom']  ,'</h4>
         </div>
         <p>', $key['textcomment'] ,'</p>
+        <p><small class="text-muted">Posté le ', $key['datecomment'],' </small></p>
         </div>
         ';
 

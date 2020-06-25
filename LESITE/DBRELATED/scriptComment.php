@@ -14,9 +14,10 @@ $bdd = db_covidirect::getInstance();
 
 $requete = $bdd->prepare("INSERT INTO comments(textcomment, datecomment, idad, iduser) VALUES (:textcomment, :datecomment, :idad, :iduser)");
 
+
 $requete->bindValue(':textcomment', $_POST['textcomment'], PDO::PARAM_LOB);
 $requete->bindValue(':datecomment', $datecomm, PDO::PARAM_STR);
-$requete->bindValue(':idad', $_GET['id'], PDO::PARAM_INT);
+$requete->bindValue(':idad', $_GET["id"], PDO::PARAM_INT);
 $requete->bindValue(':iduser', $_SESSION['iduser'], PDO::PARAM_INT);
 
 $requete->execute();
