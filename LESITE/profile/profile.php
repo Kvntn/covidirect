@@ -33,12 +33,13 @@
         <div class="container-profil">
         <div class="card" style="width: 35rem;">
             <div class="card-title text-center">
-                <img src="../resources/images/thomas.jpg" alt="..." class="img rounded-circle"> <?php echo $_SESSION['nom'], $_SESSION['prenom']; ?>
+                <img src="../resources/images/thomas.jpg" alt="..." class="img rounded-circle"> <?php echo $_SESSION['nom'],' ', $_SESSION['prenom']; ?>
             </div>
 
             <div class="card-body">
                 <ul class="list-group list-group-flush">
-                    <a href=""><li class="list-group-item"><i class="fas fa-map-pin"></i> <?php echo $_SESSION['userlocation']; ?> </li></a>
+                    <li class="list-group-item"><i class="fa fa-at"></i> <?php echo $_SESSION['email']; ?> </li>
+                    <li class="list-group-item"><i class="fas fa-map-pin"></i> <?php echo $_SESSION['userlocation']; ?> </li>
                 </ul>
             </div>
         </div>

@@ -11,25 +11,28 @@
         <div class="col">
             <label style="color:black;">Situation</label>
             <select class="form-control" name=statut id="exampleFormControlSelect1">
-                <option value=0>Demande de l'aide</option>
-                <option value=1>Proposition d'aide</option>
+                <option value="">Choisir la situation</option>
+                <option value=0>Demandes d'aide</option>
+                <option value=1>Propositions d'aide</option>
             </select>
         </div>
 
         <div class="col">
             <label style="color:black;">Type d'aide</label>
             <select class="form-control" name=typead id="exampleFormControlSelect1">
+                <option value="">Choisir le type d'aide</option>
                 <option value=Service>Service</option>
-                <option value=Transport>Transport</option>
-                <option value=Materiel>Matériel</option>
-                <option value=Hebergement>Hébergement</option>
-                <option value=Autre..>Autre..</option>
+                <option value="Transport">Transport</option>
+                <option value="Materiel">Matériel</option>
+                <option value="Hebergement">Hébergement</option>
+                <option value="Autre">Autre..</option>
             </select>
         </div>
 
         <div class="col">
             <label style="color:black;">Département</label>
-            <input name=adlocation  class="form-control" style="margin-left:10px;" type="number" min="1" value="1" max="1000">
+
+        <input name=adlocation  class="form-control" style="margin-left:10px;" type="number" min="1" max="1000">
         </div>
 
         <div class="col">
@@ -45,68 +48,75 @@
 <div class="row">
 
     <?php
+
+        function removeElementWithValue($array, $key, $value){
+            foreach($array as $subKey => $subArray){
+                if($subArray[$key] != $value){
+                    unset($array[$subKey]);
+                }
+            }
+            return $array;
+        }
           
         require('../DBRELATED/adsDisplay.php');
-        require('../DBRELATED/pdo_covidirect.php');
-          try{
-              require("../DBRELATED/config.php");
-          }catch(Exception $e) {
-              throw new Exception("No config ! Incorrect file path or the file is corrupted");
-          }
-          $bdd = db_covidirect::getInstance();
-            
-        switch($_POST) {
+        require("../DBRELATED/config.php");
+        $bdd = db_covidirect::getInstance();
 
-            case (isset($_POST['statut']) && isset($_POST['adlocation']) && isset($_POST['typad'])):
-            $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser WHERE ads.statut=:statut AND ads.adlocation=:adlocation AND ads.typad=:typead");
-            $requete->bindValue(':statut', $_POST['statut'], PDO::PARAM_STR);
-            $requete->bindValue(':typead', $_POST['typead'], PDO::PARAM_STR);
-            $requete->bindValue(':adlocation', $_POST['adlocation'], PDO::PARAM_STR);
-            break;
+        $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser");
+        $requete->execute();
+        $listad = $requete->fetchAll();
 
-            case (isset($_POST['statut']) && isset($_POST['adlocation']) && isnull($_POST['typad'])):
-            $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser WHERE ads.statut=:statut AND ads.adlocation=:adlocation");
-            $requete->bindValue(':statut', $_POST['statut'], PDO::PARAM_STR);
-            $requete->bindValue(':adlocation', $_POST['adlocation'], PDO::PARAM_STR);
-            break;
+        if (!empty($_POST)) {
+        
+            switch($_POST) {
 
-            case (isset($_POST['statut']) && isnull($_POST['adlocation']) && isset($_POST['typad'])):
-            $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser WHERE ads.statut=:statut AND ads.typad=:typead");
-            $requete->bindValue(':statut', $_POST['statut'], PDO::PARAM_STR);
-            $requete->bindValue(':typead', $_POST['typead'], PDO::PARAM_STR);
-            break;
-
-            case (isnull($_POST['statut']) && isset($_POST['adlocation']) && isset($_POST['typad'])):
-            $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser WHERE ads.adlocation=:adlocation AND ads.typad=:typead");
-            $requete->bindValue(':typead', $_POST['typead'], PDO::PARAM_STR);
-            $requete->bindValue(':adlocation', $_POST['adlocation'], PDO::PARAM_STR);
-            break;
-
-            case (isset($_POST['statut']) && isnull($_POST['adlocation']) && isnull($_POST['typad'])):
-            $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser WHERE ads.statut=:statut");
-            $requete->bindValue(':statut', $_POST['statut'], PDO::PARAM_STR);
-            break;
-
-            case (isnull($_POST['statut']) && isset($_POST['adlocation']) && isnull($_POST['typad'])):
-            $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser WHERE ads.adlocation=:adlocation");
-            $requete->bindValue(':adlocation', $_POST['adlocation'], PDO::PARAM_STR);
-            break;
-
-            case (isnull($_POST['statut']) && isnull($_POST['adlocation']) && isset($_POST['typad'])):
-            $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser WHERE ads.typad=:typead");
-            $requete->bindValue(':typead', $_POST['typead'], PDO::PARAM_STR);
-            break;
-
-            default :
-            $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser");
-            break;
+                case (($_POST['statut'] != "") && ($_POST['adlocation'] != "") && ($_POST['typead'] != "" )):
+                $selectads = removeElementWithValue($listad, "statut", $_POST['statut']);
+                $selectads = removeElementWithValue($listad, "adlocation", $_POST['adlocation']);
+                $selectads = removeElementWithValue($listad, "typead", $_POST['typead']);
+                $listad = $selectads;
+                break;
+    
+                case (($_POST['statut'] != "") && ($_POST['adlocation'] != "") && ($_POST['typead'] == "")):
+                $selectads = removeElementWithValue($listad, "statut", $_POST['statut']);
+                $selectads = removeElementWithValue($listad, "adlocation", $_POST['adlocation']);
+                $listad = $selectads;
+                break;
+    
+                case (($_POST['statut'] != "") && ($_POST['adlocation'] == "") && ($_POST['typead'] != "")):
+                $selectads = removeElementWithValue($listad, "statut", $_POST['statut']);
+                $selectads = removeElementWithValue($listad, "typead", $_POST['typead']);
+                $listad = $selectads;
+                break;
+    
+                case (($_POST['statut'] == "") && ($_POST['adlocation'] != "") && ($_POST['typead'] != "")):
+                $selectads = removeElementWithValue($listad, "adlocation", $_POST['adlocation']);
+                $selectads = removeElementWithValue($listad, "typead", $_POST['typead']);
+                $listad = $selectads;
+                break;
+    
+                case (($_POST['statut'] != "") && ($_POST['adlocation'] == "") && ($_POST['typead'] == "")):
+                $selectads = removeElementWithValue($listad, "statut", $_POST['statut']);
+                $listad = $selectads;
+                break;
+    
+                case (($_POST['statut'] == "") && ($_POST['adlocation'] != "") && ($_POST['typead'] == "")):
+                $selectads = removeElementWithValue($listad, "adlocation", $_POST['adlocation']);
+                $listad = $selectads;
+                break;
+    
+                case (($_POST['statut'] == "") && ($_POST['adlocation'] == "") && ($_POST['typead'] != "")):
+                $selectads = removeElementWithValue($listad, "typead", $_POST['typead']);
+                $listad = $selectads;
+                break;
+    
+                default :
+                break;
+            } 
         }
-
-            $requete->execute();
-            $listad = $requete->fetchAll();
-            $ads = new Ads($listad);
-            $ads->display($listad);
-
+        $ads = new Ads($listad);
+        $ads->display($listad);
+        
      ?>
 
 </div>

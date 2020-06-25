@@ -81,11 +81,19 @@
     <form method="POST" action="../DBRELATED/scriptComment.php?id=<?php echo $_GET['id']; ?>">
     <div class="form-group">
         <label>Poster un commentaire ?</label>
-        <input class="form-control" id="textcomment" name="textcomment" aria-describedby="emailHelp" placeholder="">
-        <small class="form-text text-muted">Il seras visible par tout les utilisateurs</small>
+        <input class="form-control" id="textcomment" name="textcomment" aria-describedby="emailHelp" placeholder="" required>
+        <small class="form-text text-muted">Il sera visible par tout les utilisateurs</small>
     </div>
     <p class="signin button">
-    	<input type="submit" class="btn btn-secondary"value="Publier"/>
+      <?php 
+      
+        if(isset($_SESSION['login'])) {
+          echo '<input type="submit" class="btn btn-secondary"value="Publier"/>';
+        }else{
+          echo '<p style="text-align:center;">Connectez vous pour poster un commentaire.</p>';
+        }
+      
+      ?>
     </p>
     </form>
 
