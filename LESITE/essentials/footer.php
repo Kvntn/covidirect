@@ -3,6 +3,8 @@
 ?>
 
 <footer class="footer navbar-dark bg-dark fixed-bottom">
+<div class="d-flex justify-content-between">
+
 <?php
     if(isset($_SESSION['login']) && $_SESSION['login'] == true){
     echo'
@@ -12,9 +14,9 @@
     </div>
     </a>';
     }
-
 ?>
-
+<a style="margin-top:10px;margin-right:10px;" href="../mainpage/legal.php">Mentions légales</a>
+</div>
 </footer>
 
     

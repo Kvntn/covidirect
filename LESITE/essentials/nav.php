@@ -10,9 +10,6 @@
       <li class="nav-item">
         <a class="nav-link" href="../mainpage/index.php">Acceuil</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="../mainpage/ads.php">Poster une annonce</a>
-      </li>
       <?php
       if(!isset($_SESSION['login'])) {
       echo'
@@ -22,11 +19,14 @@
     }
     else {
     echo'
-    <li class="nav-item">
-        <a class="nav-link" href="../profile/profile.php">Mon profil</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="../profile/register.php">Se deconnecter<i style="margin-left:10px;" class="fas fa-sign-in-alt fa-sm"></i></a>
+      <li class="nav-item">
+        <a class="nav-link" href="../mainpage/ads.php">Poster une annonce</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="../profile/profile.php">Mon profil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../DBRELATED/sssDestroy.php">Se deconnecter<i style="margin-left:10px;" class="fas fa-sign-in-alt fa-sm"></i></a>
       </li>
      ';
     

@@ -27,6 +27,7 @@ class Ads
                 <div class="card-header text-inline">
                     <img src="../resources/images/" alt="..." class="img rounded-circle">', $key['nom'], ' ', $key['prenom'], '
                 </div>
+                </a>
             <div class="card-body">
                 <div class="card-title">
                     <h5>', $key['title'],'</h5>
@@ -35,12 +36,11 @@ class Ads
                 <div class="d-flex justify-content-between align-items-center">
                     <p><small class="text-muted">Postée le ', $key['datead'],'<br>  #',$key['typead'],'</small></p>
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
-                    <p><i class="far fa-star"></i></p>
-                </div>
+                <div class="d-flex justify-content-between align-items-center">',
+                include('../profile/fav.php')
+                ,'</div>
             </div>
             </div>
-        </a>
         ';
 
         if (isset($key['prenom'])){
