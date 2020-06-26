@@ -1,6 +1,6 @@
 
 
-<nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
   <a class="navbar-brand" href="../mainpage/index.php"><i class="fas fa-shield-virus fa-lg" style="margin-left:10px;margin-right:10px;"></i>Covidirect</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
@@ -26,8 +26,12 @@
           <a class="nav-link" href="../profile/profile.php">Mon profil</a>
       </li>
       <li class="nav-item">
+          <a class="nav-link" href="../chat/chat.php">Mes messages</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="../DBRELATED/sssDestroy.php">Se deconnecter<i style="margin-left:10px;" class="fas fa-sign-in-alt fa-sm"></i></a>
       </li>
+      
      ';
     
     }

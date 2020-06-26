@@ -123,6 +123,15 @@ footer a:hover {
 }
 
 .container-chat {
+margin-top:4%;
+
+margin-left:1%;
+margin-right:1%;
+}
+
+.container-chat a:hover{
+  text-decoration: none;
+  color:black;
 }
 
 .container-singlead {
@@ -168,10 +177,23 @@ footer a:hover {
 }
 
 /*--------------------------------------------*/
-.container-chat img {
-   max-width:100%;
-  }
+.container-chat {
+  margin-top:5%;
+  margin-left: 2%;
+  margin-right: 2%;
+}
 
+.container-msg {
+  height:550px;
+  overflow:auto;
+}
+
+.container-contact {
+  overflow:auto;
+}
+
+.container{max-width:1170px; margin:auto;}
+img{ max-width:100%;}
 .inbox_people {
   background: #f8f8f8 none repeat scroll 0 0;
   float: left;
@@ -190,12 +212,12 @@ footer a:hover {
 .srch_bar {
   display: inline-block;
   text-align: right;
-  width: 60%;
+  width: 60%; padding:
 }
 .headind_srch{ padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;}
 
 .recent_heading h4 {
-  color: #343a40;
+  color: #05728f;
   font-size: 21px;
   margin: auto;
 }
@@ -265,14 +287,14 @@ footer a:hover {
 }
 
  .sent_msg p {
-  background: #343a40 none repeat scroll 0 0;
+  background: #05728f none repeat scroll 0 0;
   border-radius: 3px;
   font-size: 14px;
   margin: 0; color:#fff;
   padding: 5px 10px 5px 12px;
   width:100%;
 }
-.outgoing_msg{ overflow:hidden; margin:26px 0 26px;}
+.outgoing_msg{ overflow:hidden; margin:26px 0 26px;margin-right:5px;}
 .sent_msg {
   float: right;
   width: 46%;
@@ -288,7 +310,7 @@ footer a:hover {
 
 .type_msg {border-top: 1px solid #c4c4c4;position: relative;}
 .msg_send_btn {
-  background: #343a40 none repeat scroll 0 0;
+  background: #05728f none repeat scroll 0 0;
   border: medium none;
   border-radius: 50%;
   color: #fff;
@@ -305,4 +327,3 @@ footer a:hover {
   height: 516px;
   overflow-y: auto;
 }
-
