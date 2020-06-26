@@ -19,7 +19,6 @@ $requete->bindValue(':idad', $_GET['id'], PDO::PARAM_INT);
     $arr = $requete->fetch();
     $requete->closeCursor();
     $idreceiver = $arr['iduser'];
-var_dump($idreceiver);
 
 $LocalRequest = $bdd->prepare("INSERT INTO `message`(`message`, datemessage, idsender, idreceiver) 
                         VALUES (:msg,:Dmsg,:idsend,:idreceiv)");
@@ -34,5 +33,5 @@ $LocalRequest->bindValue(':idreceiv', $idreceiver, PDO::PARAM_STR);
 
 $LocalRequest->execute();
 $LocalRequest->closeCursor();
-header("location: chat.php");
+echo '<script> document.location.replace("chat.php"); </script>';
 ?>

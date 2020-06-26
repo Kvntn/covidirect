@@ -25,10 +25,8 @@ $LocalRequest->bindValue(':Dmsg', date("Y-m-d H:i:s"), PDO::PARAM_STR);
 $LocalRequest->bindValue(':idsend', $_SESSION['iduser'], PDO::PARAM_STR);
 $LocalRequest->bindValue(':idreceiv', $_SESSION['iduser2'], PDO::PARAM_STR);
 
-echo $_POST['message'];
-
 $LocalRequest->execute();
 $LocalRequest->closeCursor();
-header("location: chat.php");
+echo '<script> document.location.replace("chat.php"); </script>';
 ?>
 

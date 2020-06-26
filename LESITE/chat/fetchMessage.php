@@ -26,5 +26,6 @@ foreach($arr as $x => $y){
     $ok = new Message($y);
     $ok->display($ok);
 }
+
  
 ?>
