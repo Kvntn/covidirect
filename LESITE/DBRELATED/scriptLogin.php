@@ -29,11 +29,11 @@ if ($arr != NULL) {
     $_SESSION               = $arr[0];
     $_SESSION['login']      = true;
 
-    // if(isset($_COOKIE['accept_cookie']) && $_COOKIE['accept_cookie'] == true) {
-    //     setcookie('firstname',$_SESSION['firstname'], time() + 24*3600, "/", null, false, true);
-    //     setcookie('name', $_SESSION['name'], time() + 24*3600, "/", null, false, true);
-    //     setcookie('ID',$_SESSION['IDUtilisateur'], time() + 24*3600, "/", null, false, true);
-    // }
+    if(isset($_COOKIE['accept_cookie']) && $_COOKIE['accept_cookie'] == true) {
+        setcookie('firstname',$_SESSION['prenom'], time() + 24*3600, "/", null, false, true);
+        setcookie('name', $_SESSION['nom'], time() + 24*3600, "/", null, false, true);
+        setcookie('ID',$_SESSION['iduser'], time() + 24*3600, "/", null, false, true);
+    }
 
     header('Location: ../mainpage/index.php');
 

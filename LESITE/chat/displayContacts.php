@@ -29,6 +29,7 @@ class Contact
 			else if ($_GET['nom'] == $x['nom'] && $_GET['prenom'] == $x['prenom']) {
 
 				$_SESSION['iduser2'] = $x['iduser'];
+				$_SESSION['prenom2'] = $x['prenom'];
 
 				echo `<script>
 					var ids = <?php \$_SESSION['iduser'] ?>; 

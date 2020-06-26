@@ -26,17 +26,17 @@
   <div class="col-sm-8 container-msg">
     <div class="card">
       <div class="card-body">
+      <ul class="list-group list-group-flush" id="message">
       <?php
         include("fetchMessage.php");
       ?>
-      <form method="POST"  action="sendMessage.php">
-          <div class="type_msg">
-            <div class="input_msg_write">
-              <input type="text" class="write_msg" name="message" id="message" placeholder="Type a message" />
-              <button class="msg_send_btn" type="submit" id="envoi"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
-            </div>
-          </div>
+      </ul>
+      <div class="form-chat">
+      <form method="POST"  class="form-inline" action="sendMessage.php">    
+              <input type="text" required="required" class="form-control" name="message" id="message" placeholder="Type a message" />
+              <button class="btn" type="submit" id="envoi"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
       </form>
+      </div>
 
       </div>
     </div>

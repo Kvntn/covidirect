@@ -43,6 +43,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#p3" data-toggle="tab">Poster un commentaire</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#p4" data-toggle="tab">Envoyer un message privé</a>
+      </li>
     </ul>
   </div>
 
@@ -98,7 +101,29 @@
     </form>
 
   </div>
-</div>
+
+  <div class="card-body tab-pane" id="p4">
+  <form method="POST" action="../chat/newMessage.php?id=<?php echo $_GET['id']; ?>">
+    <div class="form-group">
+        <label>Envoyer un message au propriétaire de l'annonce</label>
+        <input class="form-control" id="textcomment" name="message" aria-describedby="emailHelp" placeholder="" required>
+        <small class="form-text text-muted">Vous pourrez retrouver tout vos messages dans l'onglet "Mes messages"</small>
+    </div>
+    <p class="signin button">
+      <?php 
+      
+        if(isset($_SESSION['login'])) {
+          echo '<input type="submit" class="btn btn-secondary"value="Publier"/>';
+        }else{
+          echo '<p style="text-align:center;">Connectez vous pour pouvoir envoyer des messages</p>';
+        }
+      
+      ?>
+    </p>
+    </form>
+  </div pan 4>
+
+</div fin des panneaux>
 
 
 </div>

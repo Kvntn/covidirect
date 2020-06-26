@@ -1,9 +1,7 @@
 <?php
 
 
-//////////////////////////////////
-// ADDS NEW USER IN THE DATABASE//
-//////////////////////////////////
+
 
 try{
     require "../DBRELATED/config.php";
@@ -15,6 +13,13 @@ include "../essentials/header.php";
 
 $bdd = db_covidirect::getInstance();
 
+$requete = $bdd->prepare("SELECT iduser from ads WHERE idad=:idad");
+$requete->bindValue(':idad', $_GET['id'], PDO::PARAM_INT);    
+    $requete->execute();
+    $arr = $requete->fetch();
+    $requete->closeCursor();
+    $idreceiver = $arr['iduser'];
+var_dump($idreceiver);
 
 $LocalRequest = $bdd->prepare("INSERT INTO `message`(`message`, datemessage, idsender, idreceiver) 
                         VALUES (:msg,:Dmsg,:idsend,:idreceiv)");
@@ -23,12 +28,11 @@ $LocalRequest = $bdd->prepare("INSERT INTO `message`(`message`, datemessage, ids
 $LocalRequest->bindValue(':msg', $_POST['message'], PDO::PARAM_STR);
 $LocalRequest->bindValue(':Dmsg', date("Y-m-d H:i:s"), PDO::PARAM_STR);
 $LocalRequest->bindValue(':idsend', $_SESSION['iduser'], PDO::PARAM_STR);
-$LocalRequest->bindValue(':idreceiv', $_SESSION['iduser2'], PDO::PARAM_STR);
+$LocalRequest->bindValue(':idreceiv', $idreceiver, PDO::PARAM_STR);
 
-echo $_POST['message'];
+
 
 $LocalRequest->execute();
 $LocalRequest->closeCursor();
 header("location: chat.php");
 ?>
-

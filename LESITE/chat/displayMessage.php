@@ -18,33 +18,24 @@ class Message
 	public function display($listmsg){
 
     	foreach($listmsg as $rows => $x){
-			if(!isset($_SESSION['iduser2']))
+			if(!isset($_SESSION['iduser2'])) {
 				$_SESSION['iduser2'] = 1;
+				$_SESSION['prenom2'] = 'Lui';
+			}
+				
 
 			if(($_SESSION['iduser'] == $x['idsender'] &&  $_SESSION['iduser2'] == $x['idreceiver'] ) || ($_SESSION['iduser2'] == $x['idsender'] &&  $_SESSION['iduser'] == $x['idreceiver'])) {
 
 				if ($_SESSION['iduser'] == $x['idsender']) {
 					echo '
-					<div class="outgoing_msg">
-						<div class="sent_msg">
-							<p>',$x["message"],'</p>
-							<span class="time_date">',$x["datemessage"],'</span> 
-						</div>
-					</div>
+					<li class="list-group-item">Moi : ',$x['message'],'</li>
+					<small class="text-muted datedis">',$x["datemessage"],'</small>
 				';
 				}
 				else if ($_SESSION['iduser'] == $x['idreceiver']) {
 					echo '
-					<div class="incoming_msg">
-						<div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
-							<div class="received_msg">
-								<div class="received_withd_msg">
-									<p>',$x["message"],'</p>
-									<span class="time_date">',$x["datemessage"],'</span>
-								</div>
-							</div>
-						</div>
-					</div>
+					<li class="list-group-item">', $_SESSION['prenom2'],' : ',$x['message'],'</li>
+					<small class="text-muted datedis">',$x["datemessage"],'</small>
 				';
 				}
 			}

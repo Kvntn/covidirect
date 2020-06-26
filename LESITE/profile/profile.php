@@ -18,6 +18,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#p3" data-toggle="tab">Liste des favoris</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#p4" data-toggle="tab">Envoyer un message</a>
+            </li>
         </ul>
     </div>
 </div>
@@ -80,9 +83,6 @@
   
         ?>
     </div pan3>
-
-   
-
 
 
 
