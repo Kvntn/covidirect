@@ -8,7 +8,10 @@
   <div class="collapse navbar-collapse d-flex bd-highlight" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="../mainpage/index.php">Acceuil</a>
+        <a class="nav-link" href="../mainpage/index.php">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../mainpage/info.php">Informations</a>
       </li>
       <?php
       if(!isset($_SESSION['login'])) {

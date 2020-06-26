@@ -18,7 +18,7 @@
 	<div class="form-row">
 		<div class="col form-group">
 			<label>Tire de l'annonce</label>   
-		  	<input type="text" required="required" name="title" class="form-control" placeholder="">
+		  	<input type="text" required="required" name="title" class="form-control" placeholder="" required>
 		</div> <!-- form-group end.// -->
 		
 
@@ -27,14 +27,14 @@
     <div class="form-row">
         <div class="col form-group">
             <label for="exampleFormControlSelect1">Votre situation</label>
-            <select name="statut" class="form-control" id="exampleFormControlSelect1">
+            <select name="statut" class="form-control" id="exampleFormControlSelect1" required>
             <option value=0>Je demande de l'aide</option>
             <option value=1>Je propose de l'aide</option>
             </select>
         </div>
         <div class="col form-group">
             <label for="exampleFormControlSelect1">Type de l'annonce</label>
-            <select name="typead" class="form-control">
+            <select name="typead" class="form-control" required>
             <option value="Service">Service</option>
             <option value="Transport">Transport</option>
             <option value="Materiel">Matériel</option>
@@ -46,7 +46,7 @@
 	
 	<div class="">
     <label for="exampleFormControlTextarea1">Description de l'annonce</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" name="descriptionad" rows="3"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" name="descriptionad" rows="3" required></textarea>
     </div>
     <br>
     <p class="signin button">

@@ -51,6 +51,9 @@ handlers:
 
     -   url         : /DBRELATED/scriptRegister.php
         script      : LESITE/DBRELATED/scriptRegister.php
+    
+    -   url         : /DBRELATED/sssDestroy.php
+        script      : LESITE/DBRELATED/sssDestroy.php
 
 
 #essentials
@@ -76,6 +79,11 @@ handlers:
     -   url         : /mainpage/index.php
         script      : LESITE/mainpage/index.php
 
+    -   url         : /mainpage/legal.php
+        script      : LESITE/mainpage/legal.php
+
+    -   url         : /mainpage/info.php
+        script      : LESITE/mainpage/info.php
 
 #profile   
     -   url         : /profile/login.php

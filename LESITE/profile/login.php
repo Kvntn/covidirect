@@ -25,12 +25,14 @@
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name="email" class="form-control" placeholder="Adresse mail" required="required">
         <label for="inputPassword" class="sr-only"></label>
-        <input type="password" name=password class="form-control" placeholder="Password" required="required">
+        <input type="password" name=password class="form-control" placeholder="Mot de passe" required="required">
+        <!--
         <div class="checkbox mb-3">
         <label>
         <input type="checkbox" value="remember-me">                         Se rappeller de moi
         </label>
         </div>
+        -->
         <button class="btn btn-lg btn-secondary btn-block" type="submit">Se connecter</button>
     </form>
 
