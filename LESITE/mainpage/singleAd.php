@@ -20,7 +20,7 @@
     $requete->closeCursor();
     
     $bdd2 = db_covidirect::getInstance();
-    $requete2 = $bdd2->prepare("SELECT * from comments inner join users on comments.iduser = users.iduser WHERE comments.idad=:idad");
+    $requete2 = $bdd2->prepare("SELECT * from comments inner join users on comments.iduser = users.iduser WHERE comments.idad=:idad  ORDER BY comments.idcomment DESC");
     $requete2->bindValue(':idad', $_GET['id'], PDO::PARAM_INT);    
     $requete2->execute();
     $listcomm = $requete2->fetchAll();

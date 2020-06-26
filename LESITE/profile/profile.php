@@ -10,7 +10,7 @@
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-                <a class="nav-link active" href="#p1" data-toggle="tab">Profile</a>
+                <a class="nav-link active" href="#p1" data-toggle="tab">Profil</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#p2" data-toggle="tab">Mes posts</a>

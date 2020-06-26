@@ -62,7 +62,7 @@
         require("../DBRELATED/config.php");
         $bdd = db_covidirect::getInstance();
 
-        $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser");
+        $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser ORDER BY idad DESC LIMIT 20");
         $requete->execute();
         $listad = $requete->fetchAll();
 
@@ -120,5 +120,10 @@
      ?>
 
 </div>
+
+<form action="" class="text-justify" method="get">
+    <button name="button" class="btn btn-dark" type="submit" value="previous"><i class="fas fa-arrow-left"></i></button>
+    <button name="button" class="btn btn-dark" type="submit" value="next"><i class="fas fa-arrow-right"></i></button>
+</form>
 
 </div>

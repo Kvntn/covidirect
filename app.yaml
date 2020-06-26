@@ -8,6 +8,11 @@ beta_settings:
 
 handlers:
 
+#init
+
+    -   url         : /testpipi.php
+        script      : testpipi.php
+
 #static / css
     -   url         : /resources/css/
         static_dir  : LESITE/resources/css/
