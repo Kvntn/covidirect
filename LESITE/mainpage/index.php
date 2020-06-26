@@ -65,9 +65,14 @@
         $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser ORDER BY idad DESC LIMIT 20");
         $requete->execute();
         $listad = $requete->fetchAll();
+        $requete->closeCursor();
 
         if (!empty($_POST)) {
         
+            $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser ORDER BY idad DESC");
+            $requete->execute();
+            $listad = $requete->fetchAll();
+            $requete->closeCursor();
             switch($_POST) {
 
                 case (($_POST['statut'] != "") && ($_POST['adlocation'] != "") && ($_POST['typead'] != "" )):
