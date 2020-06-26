@@ -60,12 +60,18 @@
                 </div></li>
                 <li class="list-group-item"><div class="form-row">
                     <div class="form-group col-md-6">
-                    <label>Email</label>
-                    <input type="email" required="required" class="form-control" id="inputEmail4" placeholder="<?php echo $_SESSION['email']?>">
+                    <label>Ancien mot de passe</label>
+                    <input type="password" required="required" class="form-control" id="inputPassword4" placeholder="Ancien mot de passe">
                     </div>
                     <div class="form-group col-md-6">
                     <label>Nouveau mot de passe</label>
                     <input type="password" required="required" class="form-control" id="inputPassword4" placeholder="Nouveau mot de passe">
+                    </div>
+                </div></li>
+                <li class="list-group-item"><div class="form-row">
+                    <div class="form-group col-md">
+                    <label>Email</label>
+                    <input type="email" required="required" class="form-control" id="inputEmail4" placeholder="<?php echo $_SESSION['email']?>">
                     </div>
                 </div></li>
                 <li class="list-group-item"><div class="form-row">
