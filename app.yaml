@@ -33,6 +33,23 @@ handlers:
     -   url         : /chat/chat.php
         script      : LESITE/chat/chat.php
 
+    -   url         : /chat/displayContacts.php
+        script      : LESITE/chat/displayContacts.php
+
+    -   url         : /chat/displayMessage.php
+        script      : LESITE/chat/displayMessage.php
+
+    -   url         : /chat/fetchContacts.php
+        script      : LESITE/chat/fetchContacts.php
+
+    -   url         : /chat/fetchMessage.php
+        script      : LESITE/chat/fetchMessage.php
+
+    -   url         : /chat/newMessage.php
+        script      : LESITE/chat/newMessage.php
+
+    -   url         : /chat/sendMessage.php
+        script      : LESITE/chat/sendMessage.php
 
 #DBRELATED
 
