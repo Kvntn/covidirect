@@ -18,9 +18,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="#p3" data-toggle="tab">Liste des favoris</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#p4" data-toggle="tab">Envoyer un message</a>
-            </li>
         </ul>
     </div>
 </div>
@@ -31,7 +28,7 @@
 
     <div class="card-body tab-pane active" id="p1"> 
 
-    <div class="row">
+    <div class="row container-p1profil">
         <div class="col-sm-6">
             <div class="card">
             <div class="card-body">
@@ -99,24 +96,35 @@
     </div pan1>
 
     <div class="card-body tab-pane" id="p2">
-        <?php   
-          require('../DBRELATED/adsDisplay.php');
-          require('../DBRELATED/pdo_covidirect.php');
-          try{
-          require("../DBRELATED/config.php");
-              }catch(Exception $e) {
-                  throw new Exception("No config ! Incorrect file path or the file is corrupted");
-              }
-              $bdd = db_covidirect::getInstance();
-    
-              $requete = $bdd->prepare("SELECT * from ads where iduser=:iduser ORDER BY idad DESC");
-  
-              $requete->bindValue(':iduser', $_SESSION['iduser'], PDO::PARAM_INT);
-  
-              $requete->execute();
-              $listad = $requete->fetchAll();
-              $ads = new Ads($listad);
-              $ads->display($listad);
+    <?php   
+        require('../DBRELATED/adsDisplay.php');
+        require('../DBRELATED/pdo_covidirect.php');
+        try{
+            require("../DBRELATED/config.php");
+        }catch(Exception $e) {
+                throw new Exception("No config ! Incorrect file path or the file is corrupted");
+        }
+            $bdd = db_covidirect::getInstance();
+
+            $requeteNP = $bdd->prepare("SELECT * from users where iduser=:iduser ");
+            $requeteNP->bindValue(':iduser', $_SESSION['iduser'], PDO::PARAM_INT);
+
+            $requeteNP->execute();
+            $listNP = $requeteNP->fetchAll();
+            $requeteNP->closeCursor();
+
+            $requete = $bdd->prepare("SELECT * from ads where iduser=:iduser ORDER BY idad DESC");
+            $requete->bindValue(':iduser', $_SESSION['iduser'], PDO::PARAM_INT);
+
+            $requete->execute();
+            $listad = $requete->fetchAll();
+            $requete->closeCursor();
+
+            $_SESSION['nom_displayad'] = $_SESSION['nom'];
+            $_SESSION['prenom_displayad'] = $_SESSION['prenom'];
+
+            $ads = new Ads($listad);
+            $ads->display($listad);
          ?>
     </div pan2>
 

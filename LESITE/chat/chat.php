@@ -26,11 +26,11 @@
   <div class="col-sm-8 container-msg">
     <div class="card">
       <div class="card-body">
-      <ul class="list-group list-group-flush" id="message">
+      
       <?php
         include("fetchMessage.php");
       ?>
-      </ul>
+      
       <div class="form-chat">
       <form method="POST"  class="form-inline" action="sendMessage.php">    
               <input type="text" required="required" class="form-control" name="message" id="message" placeholder="Type a message" />

@@ -28,14 +28,18 @@ class Message
 
 				if ($_SESSION['iduser'] == $x['idsender']) {
 					echo '
+					<ul class="list-group list-group-flush" id="message">
 					<li class="list-group-item">Moi : ',$x['message'],'</li>
 					<small class="text-muted datedis">',$x["datemessage"],'</small>
+					</ul>
 				';
 				}
 				else if ($_SESSION['iduser'] == $x['idreceiver']) {
 					echo '
+					<ul class="list-group list-group-flush" id="message">
 					<li class="list-group-item">', $_SESSION['prenom2'],' : ',$x['message'],'</li>
 					<small class="text-muted datedis">',$x["datemessage"],'</small>
+					</ul>
 				';
 				}
 			}
