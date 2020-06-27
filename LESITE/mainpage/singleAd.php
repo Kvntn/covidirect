@@ -43,9 +43,15 @@
       <li class="nav-item">
         <a class="nav-link" href="#p3" data-toggle="tab">Poster un commentaire</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#p4" data-toggle="tab">Envoyer un message privé</a>
-      </li>
+      
+  <?php 
+
+  if($_SESSION['iduser'] != $ad['iduser']) {
+    echo '<li class="nav-item">
+            <a class="nav-link" href="#p4" data-toggle="tab">Envoyer un message privé</a>
+          </li>';
+      }
+  ?>
     </ul>
   </div>
 
@@ -65,9 +71,10 @@
                     <p><small class="text-muted">Postée le <?php echo $ad['datead']; ?>, valable jusqu'au <?php echo $ad['expirationdate']; ?></small></p>
                     <p><small class="text-muted">#<?php echo $ad['typead']; ?></small></p>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <p><i style="margin-right:10px;color:gold;" class="far fa-star fa-lg"></i>    Ajouter aux favoris</p>
-                </div>
+                <?php 
+                include("../DBRELATED/fav.php");
+                //$_SESSION['id_temp_fav'] = null;
+                ?>
         </div>
   </div>
 
