@@ -23,38 +23,36 @@
     }  
  ?>  
 
-      <body>  
-           <br /><br />  
-           <div class="container" style="width:500px;">  
-                <h3 align="center">Insert and Display Images From Mysql Database in PHP</h3>  
-                <br />  
-                <form method="post" enctype="multipart/form-data">  
-                     <input type="file" name="image" id="image" />  
-                     <br />  
-                     <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />  
-                </form>  
-                <br />  
-                <br />  
-                <table class="table table-bordered">  
-                     <tr>  
-                          <th>Image</th>  
-                     </tr>  
-                <?php
-                $LocalRequest = $bdd->prepare("SELECT userphoto FROM users WHERE iduser=37");
-                $LocalRequest->execute();
-                $fetch =  $LocalRequest->fetch();
-                $LocalRequest->closeCursor();  
-                while($row =$fetch)  
-                {  
-                     echo '  
-                          <tr>  
-                               <td>  
-                                    <img src="data:image/jpeg;base64,'.base64_encode($row['name'] ).'" height="200" width="200" class="img-thumnail" />  
-                               </td>  
-                          </tr>  
-                     ';  
-                }  
-                ?>  
+          <body>  
+               <br /><br />  
+               <div class="container" style="width:500px;">  
+                    <h3 align="center">Insert and Display Images From Mysql Database in PHP</h3>  
+                    <br />  
+                    <form method="post" enctype="multipart/form-data">  
+                         <input type="file" name="image" id="image" />  
+                         <br />  
+                         <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />  
+                    </form>  
+                    <br />  
+                    <br />  
+                    <table class="table table-bordered">  
+                         <tr>  
+                              <th>Image</th>  
+                         </tr>  
+                    <?php
+
+                    $LocalRequest = $bdd->prepare("SELECT userphoto FROM users WHERE iduser=37");
+                    $LocalRequest->execute();
+                    $fetch =  $LocalRequest->fetch();
+                    $LocalRequest->closeCursor();
+                    //var_dump($fetch);
+                    echo '  
+                         <tr>  
+                              <td>  
+                                   <img src="data:userphoto/jpeg;base64,'.base64_encode(stripslashes($fetch['userphoto'])).' height="200" width="200" class="img-thumnail" " />  
+                              </td>  
+                         </tr>' ;  
+                    ?>  
                 </table>  
            </div>  
       </body>  
