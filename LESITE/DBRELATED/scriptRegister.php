@@ -53,6 +53,15 @@ if($_POST['pwtest'] != $_POST['password']){
     
 $_POST['password'] = md5($_POST['password']);
 
+$file = addslashes(file_get_contents($_FILES['image']['tmp_name']));  
+
+if (empty($file)) {
+
+    $file = fopen("../resources/images/egg.png", r);
+    $file = addslashes(file_get_contents($file));  
+
+}
+
 $LocalRequest = $bdd->prepare("INSERT INTO users(email, nom, prenom, userlocation, userphoto, pw) 
                         VALUES (:email,:xname,:fname,:userloc,:userpic,:passw)");
 
@@ -61,10 +70,10 @@ $LocalRequest->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
 $LocalRequest->bindValue(':xname', $_POST['nom'], PDO::PARAM_STR);
 $LocalRequest->bindValue(':fname', $_POST['prenom'], PDO::PARAM_STR);
 $LocalRequest->bindValue(':userloc', $_POST['userlocation'], PDO::PARAM_STR);
-$LocalRequest->bindValue(':userpic', $_POST['userphoto'], PDO::PARAM_INT);
+$LocalRequest->bindValue(':userpic', $file, PDO::PARAM_LOB);
 $LocalRequest->bindValue(':passw', $_POST['password'], PDO::PARAM_STR);
 
 $LocalRequest->execute();
 $LocalRequest->closeCursor();
-echo '<script> document.location.replace("../mainpage/index.php"); </script>';
+echo '<script> document.location.replace("../profile/login.php"); </script>';
 ?>

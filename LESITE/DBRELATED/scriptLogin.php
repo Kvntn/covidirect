@@ -14,7 +14,7 @@ $bdd = db_covidirect::getInstance();
 $motDePasse = md5($_POST['password']); 
 
 // Requête préparée pour empêcher les injections SQL
-$requete = $bdd->prepare("SELECT iduser, email, nom, prenom, userlocation, userphoto FROM users WHERE email=:email AND pw=:motDePasse");
+$requete = $bdd->prepare("SELECT * FROM users WHERE email=:email AND pw=:motDePasse");
 
 $requete->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
 $requete->bindValue(':motDePasse', $motDePasse, PDO::PARAM_STR);

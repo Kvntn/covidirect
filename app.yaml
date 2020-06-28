@@ -62,6 +62,9 @@ handlers:
     -   url         : /DBRELATED/pdo_covidirect.php
         script      : LESITE/DBRELATED/pdo_covidirect.php
 
+    -   url         : /DBRELATED/profileUpdate.php
+        script      : LESITE/DBRELATED/profileUpdate.php
+
     -   url         : /DBRELATED/scriptAds.php
         script      : LESITE/DBRELATED/scriptAds.php    
 
@@ -76,6 +79,9 @@ handlers:
     
     -   url         : /DBRELATED/sssDestroy.php
         script      : LESITE/DBRELATED/sssDestroy.php
+
+    -   url         : /DBRELATED/switch_fav.php
+        script      : LESITE/DBRELATED/switch_fav.php
 
 
 #essentials

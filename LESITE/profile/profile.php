@@ -2,6 +2,10 @@
     include("../essentials/header.php");
     include("../essentials/nav.php");
     include("../essentials/footer.php");
+
+ ?>  
+
+
 ?>
 
 <div class="container-profil">
@@ -32,8 +36,8 @@
         <div class="col-sm-6">
             <div class="card">
             <div class="card-body">
-                <h5 class="card-title"><img src="../resources/images/thomas.jpg"><?php echo $_SESSION['nom'],'    ',$_SESSION['prenom'];?></h5>
-                <li class="list-group-item"><i class="fas fa-map-pin fa-lg"></i>    Localisation de l'utilisateur : <?php echo $_SESSION['userlocation']?></li>
+                <h5 class="card-title"><img src="<?php echo 'data:userphoto/jpeg;base64,'.base64_encode(stripslashes($_SESSION['userphoto'])).'">';?><?php echo ' ', $_SESSION['nom'],'  ',$_SESSION['prenom'];?> </h5>
+                <li class="list-group-item><i class="fas fa-map-pin fa-lg"></i>    Localisation de l'utilisateur : <?php echo $_SESSION['userlocation']?></li>
             </div>
             </div>
         </div>
@@ -43,7 +47,7 @@
                     <h4>Modifier votre profil</h4>
                 </div>
             <div class="card-body">
-            <form action="profileUpdate.php">
+            <form method="post" action="../DBRELATED/profileUpdate.php" enctype="multipart/form-data">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item"><div class="row">
                     <div class="col">
@@ -58,17 +62,17 @@
                 <li class="list-group-item"><div class="form-row">
                     <div class="form-group col-md-6">
                     <label>Ancien mot de passe</label>
-                    <input type="password" required="required" class="form-control" id="inputPassword4" placeholder="Ancien mot de passe">
+                    <input name="ancienmdp" type="password" required="required" class="form-control" id="inputPassword4" placeholder="Ancien mot de passe">
                     </div>
                     <div class="form-group col-md-6">
                     <label>Nouveau mot de passe</label>
-                    <input type="password" required="required" class="form-control" id="inputPassword4" placeholder="Nouveau mot de passe">
+                    <input name="nvmdp" type="password" required="required" class="form-control" id="inputPassword4" placeholder="Nouveau mot de passe">
                     </div>
                 </div></li>
                 <li class="list-group-item"><div class="form-row">
                     <div class="form-group col-md">
                     <label>Email</label>
-                    <input type="email" required="required" class="form-control" id="inputEmail4" placeholder="<?php echo $_SESSION['email']?>">
+                    <input name="email" type="email" required="required" class="form-control" id="inputEmail4" placeholder="<?php echo $_SESSION['email']?>">
                     </div>
                 </div></li>
                 <li class="list-group-item"><div class="form-row">
@@ -78,12 +82,12 @@
                     </div>
                     <div class="form-group col-md-6">
                     <label>Photo de profil</label>
-                    <input type="file" name="userphoto" class="form-control-file"></input>
+                    <input type="file" name="image" id="image" class="form-control-file"></input>
                     </div>
                 </div></li>
                 <li class="list-group-item">
                 <p class="signin button">
-                <input type="submit" class="btn btn-secondary"value="Modifier le profile"/>
+                <input type="submit" class="btn btn-secondary"value="Modifier le profil"/>
                 </p>
                 </li>
             </ul>  

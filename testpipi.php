@@ -12,7 +12,7 @@
         $LocalRequest = $bdd->prepare("UPDATE users SET userphoto = :pp WHERE iduser=:iduser");
 
         $LocalRequest->bindValue(':pp', $file, PDO::PARAM_LOB);
-        $LocalRequest->bindValue(':iduser', 37, PDO::PARAM_INT);
+        $LocalRequest->bindValue(':iduser', $_SESSION['iduser'], PDO::PARAM_INT);
         $LocalRequest->execute();
 
         if($LocalRequest->execute() == TRUE)
@@ -41,7 +41,8 @@
                          </tr>  
                     <?php
 
-                    $LocalRequest = $bdd->prepare("SELECT userphoto FROM users WHERE iduser=37");
+                    $LocalRequest = $bdd->prepare("SELECT userphoto FROM users WHERE iduser=:iduser");
+                    $LocalRequest->bindValue(':iduser', $_SESSION['iduser'], PDO::PARAM_INT);
                     $LocalRequest->execute();
                     $fetch =  $LocalRequest->fetch();
                     $LocalRequest->closeCursor();
@@ -57,25 +58,25 @@
            </div>  
       </body>  
  </html>  
- <script>  
- $(document).ready(function(){  
-      $('#insert').click(function(){  
-           var image_name = $('#image').val();  
-           if(image_name == '')  
-           {  
-                alert("Please Select Image");  
-                return false;  
-           }  
-           else  
-           {  
-                var extension = $('#image').val().split('.').pop().toLowerCase();  
-                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
-                {  
-                     alert('Invalid Image File');  
-                     $('#image').val('');  
-                     return false;  
-                }  
-           }  
-      });  
- });  
- </script>  
+<!-- <script>  
+$(document).ready(function(){  
+     $('#insert').click(function(){  
+          var image_name = $('#image').val();  
+          if(image_name == '')  
+          {  
+               alert("Please Select Image");  
+               return false;  
+          }  
+          else  
+          {  
+               var extension = $('#image').val().split('.').pop().toLowerCase();  
+               if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)  
+               {  
+                    alert('Invalid Image File');  
+                    $('#image').val('');  
+                    return false;  
+               }  
+          }  
+     });  
+});  
+</script>   -->

@@ -62,7 +62,27 @@
         require("../DBRELATED/config.php");
         $bdd = db_covidirect::getInstance();
 
-        $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser ORDER BY idad DESC LIMIT 20");
+        $minid = 0;
+        if (isset($_GET['button'])){
+        switch ($_GET['button'])
+        {
+            case "previous" :
+              $minid = $minid-6;
+            if($minid < 0){ $minid = 0;}
+            break;
+            case "next" :
+            $minid = $minid+6;
+            break;
+            default :
+            $minid = 0;
+            break;
+        }
+      }
+
+
+        $requete = $bdd->prepare("SELECT * from ads inner join users on ads.iduser = users.iduser ORDER BY idad DESC LIMIT :minid, 30");
+        $requete->bindValue(':minid', $minid, PDO::PARAM_INT);
+
         $requete->execute();
         $listad = $requete->fetchAll();
         $requete->closeCursor();
@@ -119,6 +139,11 @@
                 break;
             } 
         }
+        else if (isset($_GET['button'])){
+
+
+
+        }
         $ads = new Ads($listad);
         $ads->display($listad);
         
@@ -127,8 +152,10 @@
 </div>
 
 <form action="" class="text-justify" method="get">
+<p align= center>
     <button name="button" class="btn btn-dark" type="submit" value="previous"><i class="fas fa-arrow-left"></i></button>
     <button name="button" class="btn btn-dark" type="submit" value="next"><i class="fas fa-arrow-right"></i></button>
+    </p>
 </form>
 
 </div>

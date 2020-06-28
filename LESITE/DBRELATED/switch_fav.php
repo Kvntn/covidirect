@@ -10,8 +10,6 @@
     
     $bdd = db_covidirect::getInstance();
 
-    var_dump($_POST);
-
     if(isset($_POST['unfav'])) {
 
         $requete = $bdd->prepare("DELETE from to_fav where to_fav.iduser=:iduser and to_fav.idad=:idad");
@@ -34,6 +32,6 @@
    
     $requete->closeCursor();
     
-    echo '<script> document.location.replace("../mainpage/singleAd.php?id=',$_SESSION['id_temp_fav'],'") </script>';
+    echo '<script> document.location.replace("../mainpage/singleAd.php?id=',$_SESSION['id_temp_fav'],'"); </script>';
     
 ?>
