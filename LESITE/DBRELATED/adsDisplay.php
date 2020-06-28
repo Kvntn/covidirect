@@ -47,7 +47,7 @@ class Ads
             <a href="../mainpage/singleAd.php?id=', $key['idad'] ,'" style="text-decoration:none;">     
                 <div class="card mb-6 box-shadow" style="margin-bottom:20px">
                     <div class="card-header text-inline">
-                        <img src="../resources/images/" alt="..." class="img rounded-circle">', $key['nom'], ' ', $key['prenom'], $statut,'
+                        <img src="data:userphoto/jpeg;base64,'.base64_encode(stripslashes($key['userphoto'])).'" alt="..." class="img rounded-circle">', $key['nom'], ' ', $key['prenom'], $statut,'
                     </div>
                     </a>
                 <div class="card-body">

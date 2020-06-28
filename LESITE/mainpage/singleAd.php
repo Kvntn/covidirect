@@ -60,7 +60,7 @@
   <div class="card-body tab-pane active" id="p1">
 
         <div class="card-header bg-white">
-            <img src="../resources/images/thomas.jpg" alt="..." class="img rounded-circle text-inline"> <?php echo $ad['nom'], ' ' , $ad['prenom']; ?>
+            <img src=<?php echo '"data:userphoto/jpeg;base64,'.base64_encode(stripslashes($ad['userphoto'])).'"';?> alt="..." class="img rounded-circle text-inline"> <?php echo $ad['nom'], ' ' , $ad['prenom']; ?>
         </div>
         <div class="card-body">
                 <div class="card-title">
@@ -112,15 +112,15 @@
   <div class="card-body tab-pane" id="p4">
   <form method="POST" action="../chat/newMessage.php?id=<?php echo $_GET['id']; ?>">
     <div class="form-group">
-        <label>Envoyer un message au propriétaire de l'annonce</label>
+        <label>Envoyer un message au propriétaire de l'annonce.</label>
         <input class="form-control" id="textcomment" name="message" aria-describedby="emailHelp" placeholder="" required>
-        <small class="form-text text-muted">Vous pourrez retrouver tout vos messages dans l'onglet "Mes messages"</small>
+        <small class="form-text text-muted">Vous pourrez retrouver tous vos messages dans l'onglet "Mes messages".</small>
     </div>
     <p class="signin button">
       <?php 
       
         if(isset($_SESSION['login'])) {
-          echo '<input type="submit" class="btn btn-secondary"value="Publier"/>';
+          echo '<input type="submit" class="btn btn-secondary"value="Envoyer"/>';
         }else{
           echo '<p style="text-align:center;">Connectez vous pour pouvoir envoyer des messages</p>';
         }

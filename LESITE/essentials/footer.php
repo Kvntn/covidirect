@@ -10,7 +10,7 @@
     echo'
     <a href="../profile/profile.php">
     <div class="text-inline">
-        <img src="../resources/images/thomas.jpg" alt="..." class="img rounded-circle"> ',$_SESSION['nom'],' ',$_SESSION['prenom'],'
+        <img src="data:userphoto/jpeg;base64,'.base64_encode(stripslashes($_SESSION['userphoto'])).'" alt="..." class="img rounded-circle"> ',$_SESSION['nom'],' ',$_SESSION['prenom'],'
     </div>
     </a>';
     }
