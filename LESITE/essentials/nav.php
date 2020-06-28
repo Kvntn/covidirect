@@ -10,7 +10,7 @@
 ?>
 
 
-<nav class="mb-1 navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+<nav class="mb-1 navbar navbar-expand bg-dark navbar-dark fixed-top">
   <a class="navbar-brand" href="../mainpage/index.php"><i class="fas fa-shield-virus fa-lg" style="margin-left:10px;margin-right:10px;"></i>Covidirect</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333" aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
