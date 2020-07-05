@@ -22,7 +22,7 @@ class Comment
           echo '
         <div class="list-group-item list-group-item flex-column align-items-start text-left">
         <div class="inline"> 
-        <h4><img class="img rounded-circle" src="../resources/images/thomas.jpg" style="max-width: 50px; height:50px;" alt="">', $key['nom'], ' ', $key['prenom']  ,'</h4>
+        <h4><img class="img rounded-circle" src="data:userphoto/jpeg;base64,'.base64_encode(stripslashes($key['userphoto'])).'" style="max-width: 50px; height:50px;" alt="">', $key['nom'], ' ', $key['prenom']  ,'</h4>
         </div>
         <p>', $key['textcomment'] ,'</p>
         <p><small class="text-muted">Posté le ', $key['datecomment'],' </small></p>

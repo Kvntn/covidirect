@@ -39,7 +39,7 @@ class Contact
 				echo'
 						<div class="chat_list active_chat">
 							<div class="chat_people">
-								<div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+								<div class="chat_img"> <img src="data:userphoto/jpeg;base64,'.base64_encode(stripslashes($x['userphoto'])).'" alt="sunil" class="img rounded-circle"> </div>
 									<div class="chat_ib">
 									<h5>',$x['prenom'],' ', $x['nom'],'</h5>
 								</div>
@@ -52,7 +52,7 @@ class Contact
 				<a href="../chat/chat.php?nom=',$x['nom'],'&prenom=',$x['prenom'],'" >
 				<div class="chat_list ">
 						<div class="chat_people">
-							<div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div>
+							<div class="chat_img"> <img src="data:userphoto/jpeg;base64,'.base64_encode(stripslashes($x['userphoto'])).'" alt="sunil" class="img rounded-circle"> </div>
 								<div class="chat_ib">
 								<h5>',$x['prenom'],' ', $x['nom'],'</h5>
 							</div>

@@ -12,7 +12,7 @@ try{
 $bdd = db_covidirect::getInstance();
 
 // Requête préparée pour empêcher les injections SQL
-$requete = $bdd->prepare("SELECT DISTINCT iduser, prenom, nom FROM `users` inner join `message` where `message`.idsender= users.iduser OR `message`.idreceiver= users.iduser ");
+$requete = $bdd->prepare("SELECT DISTINCT iduser, prenom, nom, userphoto FROM `users` inner join `message` where `message`.idsender= users.iduser OR `message`.idreceiver= users.iduser ");
 
 $requete->bindValue(':ids', $_SESSION['iduser'], PDO::PARAM_STR);
 $requete->bindValue(':idr', $_SESSION['iduser'], PDO::PARAM_STR);
